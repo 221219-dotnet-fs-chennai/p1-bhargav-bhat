@@ -89,3 +89,22 @@ from Employee_Details edt
 where edt.Emp_id in (Select ed.Emp_id from Employee_Data ed
                     inner join Departments d on ed.Dept_ID=d.Dept_ID
                     where d.Dept_Name='Marketing');
+
+select ed.firstName,ed.lastName,d.Dept_Name
+from Employee_Data ed 
+inner join Departments d on ed.Dept_ID=d.Dept_ID
+where d.Dept_Name='Research'; 
+
+
+create table Employee_Data_Details (
+    id int PRIMARY KEY,
+    Emp_name varchar(25)
+);
+
+select * from Employee_Data_Details;
+
+alter table Employee_Data_Details
+  add Location_name varchar(25)
+
+select SUBSTRING(firstName,1,3)
+from Employee_Data;
