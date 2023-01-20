@@ -4,6 +4,7 @@
 ### Angular ###
 ## Angular ##
 # compiled output
+cString.txt
 dist/
 tmp/
 app/**/*.js
