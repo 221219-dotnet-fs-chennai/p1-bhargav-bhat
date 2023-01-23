@@ -48,6 +48,7 @@ namespace ProjectData
                             int a = 1;
                             foreach (var item in list1)
                             {
+                                a++;
                                 Console.WriteLine("\nSkill "+a+" : ");
                                 Console.WriteLine(item.ToString());
                             }

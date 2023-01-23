@@ -56,7 +56,7 @@ namespace ProjectData
                             Console.WriteLine("Thanks...");
                             Console.ReadKey();
                             return 0;
-                        case 1:
+                        case 1:Console.Clear();
                             {
                                 List<Trainer> list5 = ss.DisplayTrainer(Id);
                                 Console.WriteLine("\n---------------------Profile Details-----------------------");
@@ -102,9 +102,9 @@ namespace ProjectData
                                 }
                                 Console.WriteLine("\n-------------------------------------------------------------");
                                 Console.WriteLine("\nPress any key to Go Back");
-                                Console.ReadKey(true);
+                                
                             }
-                            
+                            Console.ReadKey();
                             break;
                         case 2:
                             ss.UpdateTrainer(u);

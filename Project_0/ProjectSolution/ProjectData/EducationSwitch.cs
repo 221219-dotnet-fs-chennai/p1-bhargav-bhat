@@ -47,6 +47,7 @@ namespace ProjectData
                             int a = 0;
                             foreach (var item in list1)
                             {
+                                a++;
                                 Console.WriteLine("\nEducational Details "+a+" : ");
                                 Console.WriteLine(item.ToString());
                             }
