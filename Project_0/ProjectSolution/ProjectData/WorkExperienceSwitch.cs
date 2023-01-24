@@ -33,6 +33,7 @@ namespace ProjectData
             {
                 do
                 {
+                    Console.Clear();
                     Console.WriteLine("\n1.View Work Experience Details\n2.Add Work Experience Data\n3.Update Work Experience Data\n4.Delete Work Experience Data\nPress 0 to Return Main Menu\n");
                     Console.WriteLine("Enter your choice: ");
                     ch = Convert.ToInt32(Console.ReadLine());
@@ -40,6 +41,8 @@ namespace ProjectData
                     {
                         case 0:
                             Console.WriteLine("Thank You");
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 1:
                             List<WorkExperience> list1 = ss.DisplayWorkExperience(Id);
@@ -51,9 +54,13 @@ namespace ProjectData
                                 Console.WriteLine("\nWork Experience "+a+" : \n");
                                 Console.WriteLine(item.ToString());
                             }
+                            Console.WriteLine("Press any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 2:
                             ss.AddWorkExperience(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 3:
                             List<WorkExperience> list2 = ss.DisplayWorkExperience(Id);
@@ -63,6 +70,8 @@ namespace ProjectData
                                 Console.WriteLine(item.ToString());
                             }
                             ss.UpdateWorkExperience(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 4:
                             List<WorkExperience> list3 = ss.DisplayWorkExperience(Id);
@@ -72,9 +81,13 @@ namespace ProjectData
                                 Console.WriteLine(item.ToString());
                             }
                             ss.DeleteWorkExperience(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         default:
                             Console.WriteLine("Invalid Choice, Please enter correct choice...!");
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                     }
 
@@ -82,7 +95,7 @@ namespace ProjectData
             }
             catch(Exception ex) 
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message+"\nPress any key to Continue...");
                 Console.ReadKey();
                 goto main;
             }

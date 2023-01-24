@@ -66,7 +66,7 @@ namespace ProjectConsole
                             Log.Information("------Working with Additional Details Table------");
                             break;
                         case 0:
-                            Console.WriteLine("Thank you You are redirecting to the Sign In/Sign Up Menu....");
+                            Console.WriteLine("Thank you You are redirecting to the Sign In/Sign Up Menu....\n\nPress any key to Continue..");
                             Console.ReadKey();
                             return;
                         default:

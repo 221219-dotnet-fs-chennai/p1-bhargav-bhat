@@ -84,7 +84,7 @@ namespace ProjectData
             using SqlConnection con = new SqlConnection(cString);
             int Id = ID;
             con.Open();
-            Console.WriteLine("Enter The College Name/University that you want to delete: ");
+            Console.WriteLine("\nEnter The College Name/University that you want to delete: ");
             string del = Console.ReadLine();
             string query = $"delete from Educations where College_University='{del}' and Trainer_ID= {Id}";
             SqlCommand command2 = new SqlCommand(query, con);
@@ -99,7 +99,7 @@ namespace ProjectData
             using SqlConnection con = new SqlConnection(cString);
             int Id = ID;
             con.Open();
-            Console.WriteLine("Please enter College name to update your details");
+            Console.WriteLine("\nPlease enter College name to update your details");
             string up=Console.ReadLine();
             Console.WriteLine("Please fill the Updated Details");
             Console.WriteLine("Enter your College Name");

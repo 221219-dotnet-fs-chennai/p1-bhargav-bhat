@@ -33,7 +33,7 @@ namespace ProjectData
             {
                 do
                 {
-                    
+                    Console.Clear();
                     Console.WriteLine("\n1.View Additional Details\n2.Add Additional Details\n3.Update Additional Details\n4.Delete Additional Details\nPress 0 to Return Main Menu\n");
                     Console.WriteLine("Enter your choice: ");
                     ch = Convert.ToInt32(Console.ReadLine());
@@ -41,6 +41,8 @@ namespace ProjectData
                     {
                         case 0:
                             Console.WriteLine("\nThank You...");
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 1:
                             List<AdditionalDetails> list1 = asql.DisplayData(Id);
@@ -48,12 +50,17 @@ namespace ProjectData
                             int a = 0;
                             foreach (var item in list1)
                             {
+                                a++;
                                 Console.WriteLine("Additional Details "+a+" : ");
                                 Console.WriteLine(item.ToString());
                             }
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 2:
                             asql.AddAdditionalData(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 3:
                             List<AdditionalDetails> list2 = asql.DisplayData(Id);
@@ -63,6 +70,8 @@ namespace ProjectData
                                 Console.WriteLine(item.ToString());
                             }
                             asql.UpdateWorkExperience(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 4:
                             List<AdditionalDetails> list3 = asql.DisplayData(Id);
@@ -72,9 +81,13 @@ namespace ProjectData
                                 Console.WriteLine(item.ToString());
                             }
                             asql.DeleteWorkExperience(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         default:
                             Console.WriteLine("Invalid Choice, Please enter correct choice...!");
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                     }
 
@@ -82,7 +95,7 @@ namespace ProjectData
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message+"Press any key to try again");
                 Console.ReadKey();
                 goto main;
             }

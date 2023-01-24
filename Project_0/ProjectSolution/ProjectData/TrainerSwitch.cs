@@ -54,6 +54,7 @@ namespace ProjectData
                     {
                         case 0:
                             Console.WriteLine("Thanks...");
+                            Console.WriteLine("Press any key to continue...");
                             Console.ReadKey();
                             return 0;
                         case 1:Console.Clear();
@@ -108,7 +109,8 @@ namespace ProjectData
                             break;
                         case 2:
                             ss.UpdateTrainer(u);
-                            
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 3:
                             d = ss.DeleteProfile(Id);
@@ -119,12 +121,13 @@ namespace ProjectData
                             else
                             {
                                 Console.WriteLine("Returning to menu...(Press any Key to Continue)");
-                                
+                                Console.ReadKey();
                             }
                             break;
                         default:
                             Console.WriteLine("Invalid Choices Please Try Again");
-                            
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                     }
 
@@ -133,7 +136,7 @@ namespace ProjectData
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message+"Please try again press any key to continue...");
                 Console.ReadKey();
                 goto main;
             }

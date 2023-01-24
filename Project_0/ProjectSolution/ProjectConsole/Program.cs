@@ -49,6 +49,7 @@ namespace UI_Console
                             break;
                         case 3:
                             Log.Information("-------------------Program Ends--------------------");
+                            Console.WriteLine("Thank you Visit Again...");
                             return;
 
                         default: break;

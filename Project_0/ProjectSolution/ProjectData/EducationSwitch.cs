@@ -33,13 +33,16 @@ namespace ProjectData
             {
                 do
                 {
+                    Console.Clear();
                     Console.WriteLine("\n1.View Educations Details\n2.Add Educational Data\n3.Update Educational Data\n4.Delete Educational Data\n Press 0 to Return Main Menu\n");
                     Console.WriteLine("Enter your choice: ");
                     ch = Convert.ToInt32(Console.ReadLine());
                     switch (ch)
                     {
                         case 0:
-                            Console.WriteLine("Thank You");
+                            Console.WriteLine("Thank You ");
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 1:
                             List<Educational> list1 = ss.DisplayEducations(Id);
@@ -51,9 +54,13 @@ namespace ProjectData
                                 Console.WriteLine("\nEducational Details "+a+" : ");
                                 Console.WriteLine(item.ToString());
                             }
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 2:
                             ss.AddEducation(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey() ;
                             break;
                         case 3:
                             List<Educational> list2 = ss.DisplayEducations(Id);
@@ -63,6 +70,8 @@ namespace ProjectData
                                 Console.WriteLine(item.ToString());
                             }
                             ss.UpdateEducation(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 4:
                             List<Educational> list3 = ss.DisplayEducations(Id);
@@ -72,9 +81,12 @@ namespace ProjectData
                                 Console.WriteLine(item.ToString());
                             }
                             ss.DeleteEducation(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         default:
                             Console.WriteLine("Invalid Choice, Please enter correct choice...!");
+                            Console.ReadKey();
                             break;
                     }
 
@@ -82,7 +94,7 @@ namespace ProjectData
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message+"Please try again press any key to continue");
                 Console.ReadKey();
                 goto main1;
             }

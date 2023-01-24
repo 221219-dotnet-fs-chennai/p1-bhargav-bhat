@@ -117,7 +117,7 @@ namespace ProjectData
                 emailcheck:
                     Console.WriteLine("Enter your Email : ");
                     trainer.Email = Console.ReadLine();
-                    string pattern1 = @"^(([a-zA-Z]+)(\d+)?)@(\w+).(\w{2,4})$";
+                    string pattern1 = @"^(([a-zA-Z]+)(\d+)?)@([a-zA-Z]+).([a-zA-Z]{2,4})$";
                     var isEmailMatch = Regex.IsMatch(trainer.Email, pattern1);
                     if (isEmailMatch)
                     {
@@ -197,7 +197,7 @@ namespace ProjectData
             con.Open();
             string uname = s;
             Console.WriteLine("You cannot Update Email Id Other details can be Update, Please enter Updated Details");
-            Console.WriteLine("Enter your First Name : ");
+            Console.WriteLine("\nEnter your First Name : ");
             string fname=Console.ReadLine();
             Console.WriteLine("Enter your Last Name : ");
             string lname = Console.ReadLine();
@@ -245,7 +245,7 @@ namespace ProjectData
                     string query = $"update Trainer set firstName='{fname}',lastName='{lname}',Gender='{g}',Password='{pwd}',Phone='{phone}',City='{city}',State='{stat}',Country='{cntry}',AboutMe='{am}' where Email='{uname}'";
                     SqlCommand command3 = new SqlCommand(query, con);
                     command3.ExecuteNonQuery();
-                    Console.WriteLine("\nSuccessfully Updatedc Press Enter to Continue...\n");
+                    Console.WriteLine("\nSuccessfully Updated Press Enter to Continue...\n");
                     Console.ReadKey();
                     con.Close();
                 }

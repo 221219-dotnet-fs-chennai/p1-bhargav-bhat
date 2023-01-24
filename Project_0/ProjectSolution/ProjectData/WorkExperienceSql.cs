@@ -79,7 +79,7 @@ namespace ProjectData
             using SqlConnection con = new SqlConnection(cString);
             int Id = ID;
             con.Open();
-            Console.WriteLine("Enter The Company Name that you want to delete: ");
+            Console.WriteLine("\nEnter The Company Name that you want to delete: ");
             string del = Console.ReadLine();
             string query = $"delete from WorkExperience where Company_Name='{del}' and Trainer_ID={Id}";
             SqlCommand command2 = new SqlCommand(query, con);
@@ -94,7 +94,7 @@ namespace ProjectData
             using SqlConnection con = new SqlConnection(cString);
             int Id = ID;
             con.Open();
-            Console.WriteLine("Please enter Company Name to update your details");
+            Console.WriteLine("\nPlease enter Company Name to update your details");
             string up = Console.ReadLine();
             Console.WriteLine("Please fill the Updated Details");
             Console.WriteLine("Enter your Company Name");

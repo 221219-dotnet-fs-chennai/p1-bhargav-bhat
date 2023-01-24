@@ -36,7 +36,7 @@ namespace ProjectData
             {
                 do
                 {
-                    
+                    Console.Clear();
                     Console.WriteLine("\n1.View Skills\n2.Add Skill\n3.Delete Skills\n Press 0 to Return Main Menu\n");
                     Console.WriteLine("Enter your choice: ");
                     ch = Convert.ToInt32(Console.ReadLine());
@@ -45,16 +45,20 @@ namespace ProjectData
                         case 1:
                             List<Skills> list1 = ss.DisplaySkills(Id);
                             Console.WriteLine("-----Skills-----");
-                            int a = 1;
+                            int a = 0;
                             foreach (var item in list1)
                             {
                                 a++;
                                 Console.WriteLine("\nSkill "+a+" : ");
                                 Console.WriteLine(item.ToString());
                             }
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 2:
                             ss.AddSkills(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 3:
                             List<Skills> list2 = ss.DisplaySkills(Id);
@@ -64,18 +68,23 @@ namespace ProjectData
                                 Console.WriteLine(item.ToString());
                             }
                             ss.DeleteSkills(Id);
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                         case 0:
+                            
                             break;
                         default:
                             Console.WriteLine("\nEnter Correct Choice");
+                            Console.WriteLine("\nPress any key to Continue...");
+                            Console.ReadKey();
                             break;
                     }
                 } while (ch > 0);
             }
             catch(Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message+"Press any key to continue...");
                 Console.ReadKey();
                 goto main;
             }

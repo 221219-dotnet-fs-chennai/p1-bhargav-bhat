@@ -56,7 +56,7 @@ namespace ProjectData
             using SqlConnection con = new SqlConnection(cString);
             int Id = ID;
             con.Open();
-            Console.WriteLine("Enter The SKill that you want to delete: ");
+            Console.WriteLine("\nEnter The SKill that you want to delete: ");
             string del=Console.ReadLine();
             string query = $"delete from skills where Skills='{del}' and Trainer_ID={Id}";
             SqlCommand command2 = new SqlCommand(query,con);
