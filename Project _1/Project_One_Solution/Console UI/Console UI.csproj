@@ -21,8 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Business Logic\Business Logic.csproj" />
     <ProjectReference Include="..\Data Logic\Data Logic.csproj" />
     <ProjectReference Include="..\EF Fluent API\Fluent API.csproj" />
+    <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
 </Project>

@@ -20,6 +20,7 @@ CREATE TABLE [Trainer] (
 
 -----------------------------SKILLS TABLE--------------------------------------------------------------------------------
 CREATE TABLE [Skills] (
+  [Id1] int IDENTITY(1,1) PRIMARY KEY,
   [Trainer_ID] int,
   [Skills] varchar(30),
   FOREIGN KEY ([Trainer_ID]) REFERENCES [Trainer]([Trainer_ID]) ON DELETE CASCADE ON UPDATE CASCADE
@@ -27,6 +28,7 @@ CREATE TABLE [Skills] (
 
 -----------------------------EDUCATION DATA TABLE------------------------------------------------------------------------
 CREATE TABLE [Educations] (
+  [Id2] int IDENTITY(1,1) PRIMARY KEY,
   [Trainer_ID] int,
   [College_University] varchar(50),
   [Degree] varchar(30),
@@ -38,6 +40,7 @@ CREATE TABLE [Educations] (
 
 -----------------------------WORK EXPERIENCE DATA TABLE-------------------------------------------------------------------
 CREATE TABLE [WorkExperience] (
+  [Id3] int IDENTITY(1,1) PRIMARY KEY,
   [Trainer_ID] int,
   [Company_Name] varchar(50),
   [Role] varchar(30),
@@ -49,6 +52,7 @@ CREATE TABLE [WorkExperience] (
 
 -----------------------------ADDITIONAL DETAILS DATA TABLE-------------------------------------------------------------------
 CREATE TABLE [AdditionalDetails] (
+  [Id4] int IDENTITY(1,1) PRIMARY KEY,
   [Trainer_ID] int,
   [Title] varchar(50),
   [Achievements] varchar(max),
@@ -92,3 +96,4 @@ select * from WorkExperience;
 select * from AdditionalDetails;
 ------------------------------------------------------------------------------------------------------------------------------
 
+drop table AdditionalDetails;

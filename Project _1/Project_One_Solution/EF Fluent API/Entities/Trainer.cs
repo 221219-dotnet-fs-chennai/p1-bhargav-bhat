@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EF_Fluent_API.Entities;
+namespace Entities;
 
 public partial class Trainer
 {
@@ -26,4 +26,12 @@ public partial class Trainer
     public string? Country { get; set; }
 
     public string? AboutMe { get; set; }
+
+    public virtual ICollection<AdditionalDetail> AdditionalDetails { get; } = new List<AdditionalDetail>();
+
+    public virtual ICollection<Education> Educations { get; } = new List<Education>();
+
+    public virtual ICollection<Skill> Skills { get; } = new List<Skill>();
+
+    public virtual ICollection<WorkExperience> WorkExperiences { get; } = new List<WorkExperience>();
 }
