@@ -12,7 +12,7 @@ namespace Business_Logic
         {
             return new Models.Trainer()
             {
-                
+
                 firstName = t.FirstName,
                 lastName = t.LastName,
                 Gender = t.Gender,
@@ -35,13 +35,31 @@ namespace Business_Logic
         {
             return new Models.Skills()
             {
-                skillName = s.Skills
+                trainerID = Validation.HandleStringNulls(s.TrainerId),
+                skillName = s.SkillName
             };
         }
 
         public static IEnumerable<Models.Skills> Map(IEnumerable<Fluent_API.Entities.Skill> skills)
         {
             return skills.Select(Map);
+        }
+
+        public static Models.WorkExperience Map(Fluent_API.Entities.WorkExperience w)
+        {
+            return new Models.WorkExperience()
+            {
+                Id = w.Id3,
+                Company_Name = w.CompanyName,
+                Role = w.Role,
+                StartDate = w.StartDate,
+                EndDate = w.EndDate,
+                Description = w.Description
+            };
+        }
+        public static IEnumerable<Models.WorkExperience> Map(IEnumerable<Fluent_API.Entities.WorkExperience> workExperiences)
+        {
+            return workExperiences.Select(Map);
         }
     }
 }

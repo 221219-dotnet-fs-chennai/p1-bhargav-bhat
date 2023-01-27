@@ -3,18 +3,23 @@ using Models;
 
 namespace Fluent_API.Entities
 {
-    public class EFRepo: ITrainerRepo<Entities.Trainer> ,ISkillsRepo<Entities.Skill>
+    public class EFRepo : ITrainerRepo<Trainer>, ISkillsRepo<Skill>,IWork<WorkExperience>
     {
-        TrainerDatabaseProjectContext context=new TrainerDatabaseProjectContext();
+        TrainerDatabaseProjectContext context = new TrainerDatabaseProjectContext();
 
-        public List<Entities.Trainer> DisplayTrainer()
+        public List<Trainer> DisplayTrainer()
         {
             return context.Trainers.ToList();
         }
 
-        public List<Entities.Skill> DisplaySkills()
+        public List<Skill> DisplaySkills()
         {
             return context.Skills.ToList();
+        }
+
+        public List<WorkExperience> DisplayWork()
+        {
+            return context.WorkExperiences.ToList();
         }
     }
 }

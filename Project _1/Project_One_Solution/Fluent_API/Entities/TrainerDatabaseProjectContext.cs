@@ -79,17 +79,16 @@ public partial class TrainerDatabaseProjectContext : DbContext
 
         modelBuilder.Entity<Skill>(entity =>
         {
-            entity.HasKey(e => e.Id1).HasName("PK__Skills__C49607F5433F4DB9");
+            entity.HasKey(e => e.Id1).HasName("PK__Skills__C49607F511152754");
 
-            entity.Property(e => e.Skills)
+            entity.Property(e => e.SkillName)
                 .HasMaxLength(30)
                 .IsUnicode(false);
             entity.Property(e => e.TrainerId).HasColumnName("Trainer_ID");
 
             entity.HasOne(d => d.Trainer).WithMany(p => p.Skills)
                 .HasForeignKey(d => d.TrainerId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK__Skills__Trainer___08B54D69");
+                .HasConstraintName("FK__Skills__Trainer___1BC821DD");
         });
 
         modelBuilder.Entity<Trainer>(entity =>
