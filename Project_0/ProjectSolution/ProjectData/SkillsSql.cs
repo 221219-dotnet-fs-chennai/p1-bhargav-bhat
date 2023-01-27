@@ -22,7 +22,7 @@ namespace ProjectData
             con.Open();
             Console.WriteLine("Enter your Skills:");
             string skill=Console.ReadLine();
-            string query2 = $"insert into Skills(Trainer_ID,Skills) values({Id},'{skill}')";
+            string query2 = $"insert into Skills(Trainer_ID,SkillName) values({Id},'{skill}')";
             SqlCommand command2 = new SqlCommand(query2,con);
             command2.ExecuteNonQuery();
             Console.WriteLine("\nSkill Added Successfully\n");
@@ -35,7 +35,7 @@ namespace ProjectData
             using SqlConnection con = new SqlConnection(cString);
             con.Open();
             int ID = Id;
-            string query = $"Select Skills from Skills where Trainer_Id={ID}";
+            string query = $"Select SkillName from Skills where Trainer_Id={ID}";
             SqlCommand command2 = new SqlCommand(query, con);
             SqlDataReader sdr=command2.ExecuteReader();
 
@@ -56,9 +56,9 @@ namespace ProjectData
             using SqlConnection con = new SqlConnection(cString);
             int Id = ID;
             con.Open();
-            Console.WriteLine("\nEnter The SKill that you want to delete: ");
+            Console.WriteLine("\nEnter The Skill that you want to delete: ");
             string del=Console.ReadLine();
-            string query = $"delete from skills where Skills='{del}' and Trainer_ID={Id}";
+            string query = $"delete from skills where SkillName='{del}' and Trainer_ID={Id}";
             SqlCommand command2 = new SqlCommand(query,con);
             command2.ExecuteNonQuery();
             Console.WriteLine("\nSuccessfully Deleted..!\n");

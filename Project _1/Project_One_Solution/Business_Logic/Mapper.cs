@@ -35,7 +35,7 @@ namespace Business_Logic
         {
             return new Models.Skills()
             {
-                trainerID = Validation.HandleStringNulls(s.TrainerId),
+                trainerID=Validation.HandleStringNulls(s.TrainerId),
                 skillName = s.SkillName
             };
         }
@@ -51,10 +51,10 @@ namespace Business_Logic
             {
                 Id = w.Id3,
                 Company_Name = w.CompanyName,
-                Role = w.Role,
-                StartDate = w.StartDate,
-                EndDate = w.EndDate,
-                Description = w.Description
+                Role=w.Role,
+                StartDate=w.StartDate,
+                EndDate=w.EndDate,
+                Description=w.Description
             };
         }
         public static IEnumerable<Models.WorkExperience> Map(IEnumerable<Fluent_API.Entities.WorkExperience> workExperiences)

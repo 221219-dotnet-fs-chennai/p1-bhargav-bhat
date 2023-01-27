@@ -14,6 +14,7 @@ namespace Fluent_API.Entities
 
         public List<Skill> DisplaySkills()
         {
+
             return context.Skills.ToList();
         }
 

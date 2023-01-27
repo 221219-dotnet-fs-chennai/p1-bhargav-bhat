@@ -1,5 +1,6 @@
 ﻿using Models;
 using Fluent_API;
+using Fluent_API.Entities;
 
 namespace Business_Logic
 {
