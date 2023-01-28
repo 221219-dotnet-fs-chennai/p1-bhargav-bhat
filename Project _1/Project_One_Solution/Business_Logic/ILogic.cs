@@ -8,6 +8,8 @@ namespace Business_Logic
     {
         IEnumerable<Trainer> GetTrainers();
         IEnumerable<Skills> GetSkills();
-        IEnumerable<WorkExperience> GetWorkExperiences();
+        IEnumerable<WorkE> GetWorkExperiences();
+        IEnumerable<Educate> GetEducations();
+        IEnumerable<Additional> GetAdditionals();
     }
 }

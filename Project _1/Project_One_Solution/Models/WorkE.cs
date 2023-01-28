@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class WorkExperience
+    public class WorkE
     {
-        public WorkExperience() 
+        public WorkE()
         {
         }
         public int Id { get; set; }
-        public int Trainer_Id { get; set; }
         public string Company_Name { get; set; }
         public string Role { get; set; }
         public string StartDate { get; set; }

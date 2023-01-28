@@ -35,7 +35,7 @@ namespace Business_Logic
         {
             return new Models.Skills()
             {
-                trainerID=Validation.HandleStringNulls(s.TrainerId),
+                Id=s.Id1,
                 skillName = s.SkillName
             };
         }
@@ -45,21 +45,56 @@ namespace Business_Logic
             return skills.Select(Map);
         }
 
-        public static Models.WorkExperience Map(Fluent_API.Entities.WorkExperience w)
+        public static Models.WorkE Map(Fluent_API.Entities.WorkExperience w)
         {
-            return new Models.WorkExperience()
+            return new Models.WorkE()
             {
                 Id = w.Id3,
                 Company_Name = w.CompanyName,
-                Role=w.Role,
-                StartDate=w.StartDate,
-                EndDate=w.EndDate,
-                Description=w.Description
+                Role = w.Role,
+                StartDate = w.StartDate,
+                EndDate = w.EndDate,
+                Description = w.Description
             };
         }
-        public static IEnumerable<Models.WorkExperience> Map(IEnumerable<Fluent_API.Entities.WorkExperience> workExperiences)
+        public static IEnumerable<Models.WorkE> Map(IEnumerable<Fluent_API.Entities.WorkExperience> workExperiences)
         {
             return workExperiences.Select(Map);
+        }
+
+        public static Models.Educate Map(Fluent_API.Entities.Education e)
+        {
+            return new Models.Educate()
+            {
+                Id=e.Id2,
+                College_Uni=e.CollegeUniversity,
+                Degree=e.Degree,
+                Start_Date=e.StartDate,
+                End_Date=e.EndDate,
+                Descriptions=e.Description
+            };
+        }
+
+        public static IEnumerable<Models.Educate> Map(IEnumerable<Fluent_API.Entities.Education> educations)
+        {
+            return educations.Select(Map);
+        }
+
+        public static Models.Additional Map(Fluent_API.Entities.AdditionalDetail ad)
+        {
+            return new Models.Additional()
+            {
+                Id=ad.Id4,
+                Title=ad.Title,
+                Achievments=ad.Achievements,
+                Publications=ad.Publications,
+                Volunteering_Experiences=ad.VolunteeringExperiences
+            };
+         }
+
+        public static IEnumerable<Models.Additional> Map(IEnumerable<Fluent_API.Entities.AdditionalDetail> additionalDetails)
+        {
+            return additionalDetails.Select(Map);
         }
     }
 }

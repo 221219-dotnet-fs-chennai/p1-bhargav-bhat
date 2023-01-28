@@ -7,6 +7,7 @@ namespace Models
     {
         public Skills()
         {
+            this.skillName = skillName;
         }
         public int Id { get; set; }
         public int trainerID {get; set; }
