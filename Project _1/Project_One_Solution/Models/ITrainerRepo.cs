@@ -9,5 +9,10 @@ namespace Models
     public interface ITrainerRepo<T>
     {
         List<T> DisplayTrainer();
+
+        //void AddTrainer(Trainer trainer);
+        Trainer AddTrainer(Trainer trainer);
+
+        List<T> FetchTrainer(string email);
     }
 }

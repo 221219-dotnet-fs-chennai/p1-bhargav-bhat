@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +37,7 @@ namespace Business_Logic
         {
             return new Models.Skills()
             {
-                Id=s.Id1,
+                Id = s.Id1,
                 skillName = s.SkillName
             };
         }
@@ -66,12 +68,12 @@ namespace Business_Logic
         {
             return new Models.Educate()
             {
-                Id=e.Id2,
-                College_Uni=e.CollegeUniversity,
-                Degree=e.Degree,
-                Start_Date=e.StartDate,
-                End_Date=e.EndDate,
-                Descriptions=e.Description
+                Id = e.Id2,
+                College_Uni = e.CollegeUniversity,
+                Degree = e.Degree,
+                Start_Date = e.StartDate,
+                End_Date = e.EndDate,
+                Descriptions = e.Description
             };
         }
 
@@ -84,17 +86,34 @@ namespace Business_Logic
         {
             return new Models.Additional()
             {
-                Id=ad.Id4,
-                Title=ad.Title,
-                Achievments=ad.Achievements,
-                Publications=ad.Publications,
-                Volunteering_Experiences=ad.VolunteeringExperiences
+                Id = ad.Id4,
+                Title = ad.Title,
+                Achievments = ad.Achievements,
+                Publications = ad.Publications,
+                Volunteering_Experiences = ad.VolunteeringExperiences
             };
-         }
+        }
 
         public static IEnumerable<Models.Additional> Map(IEnumerable<Fluent_API.Entities.AdditionalDetail> additionalDetails)
         {
             return additionalDetails.Select(Map);
+        }
+
+        public static Trainer MapTrainer(Models.Trainer at)
+        {
+            return new Trainer()
+            {
+                firstName = at.firstName,
+                lastName = at.lastName,
+                Gender = at.Gender,
+                Email = at.Email,
+                Password = at.Password,
+                Phone = at.Phone,
+                City = at.City,
+                State = at.State,
+                Country = at.Country,
+                Aboutme = at.Aboutme
+            };
         }
     }
 }

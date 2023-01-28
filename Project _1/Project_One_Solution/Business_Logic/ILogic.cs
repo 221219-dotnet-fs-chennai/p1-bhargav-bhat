@@ -11,5 +11,8 @@ namespace Business_Logic
         IEnumerable<WorkE> GetWorkExperiences();
         IEnumerable<Educate> GetEducations();
         IEnumerable<Additional> GetAdditionals();
+        Trainer AddTrainers(Trainer trainer);
+
+        IEnumerable<Trainer> FetchTrain(string email);
     }
 }

@@ -20,6 +20,16 @@ namespace Business_Logic
             addit = new Fluent_API.Entities.EFAdditional();
         }
 
+        public Trainer AddTrainers(Trainer trainer)
+        {
+            return Mapper.MapTrainer(repo.AddTrainer(trainer));
+        }
+
+        public IEnumerable<Trainer> FetchTrain(string email)
+        {
+            return Mapper.Map(repo.FetchTrainer(email));
+        }
+
         public IEnumerable<Additional> GetAdditionals()
         {
             return Mapper.Map(addit.DisplayAdditional());
