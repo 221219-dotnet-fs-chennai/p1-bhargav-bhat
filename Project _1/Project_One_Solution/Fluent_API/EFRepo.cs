@@ -1,16 +1,15 @@
 ﻿using Fluent_API.Entities;
 using Models;
-using System.Text.RegularExpressions;
 
-namespace Fluent_API.Entities
+
+namespace Fluent_API
 {
-    public class EFRepo : ITrainerRepo<Trainer>
+    public class EFRepo : ITrainerRepo<Entities.Trainer>
     {
         TrainerDatabaseProjectContext context = new TrainerDatabaseProjectContext();
 
-        public Models.Trainer AddTrainer(Models.Trainer trainer)
+        public Entities.Trainer AddTrainer(Entities.Trainer t)
         {
-            Trainer t = new Trainer();
 
             Console.WriteLine("\n==========Welcome===========\n");
             Console.WriteLine("Enter your First name : ");
@@ -22,7 +21,7 @@ namespace Fluent_API.Entities
             Console.WriteLine("Enter your Email : ");
             t.Email = Console.ReadLine();
             Console.WriteLine("Enter your Password : ");
-            trainer.Password = string.Empty;
+            t.Password = string.Empty;
             ConsoleKey key;
             do
             {
@@ -54,16 +53,23 @@ namespace Fluent_API.Entities
              context.Trainers.Add(t);
              context.SaveChanges();
             
-             return trainer;
+             return t;
         }
 
+        public Entities.Trainer DeleteTrainer(string email)
+        {
+            var s=context.Trainers.Where(t=>t.Email == email).FirstOrDefault();
+            context.Trainers.Remove(s);
+            context.SaveChanges();
+            return s;
+        }
 
-        public List<Trainer> DisplayTrainer()
+        public List<Entities.Trainer> DisplayTrainer()
         {
             return context.Trainers.ToList();
         }
 
-        public List<Trainer> FetchTrainer(string email)
+        public List<Entities.Trainer> FetchTrainer(string email)
         {
 
             var tr = from t in context.Trainers
@@ -71,5 +77,57 @@ namespace Fluent_API.Entities
                      select t;
             return tr.ToList();
         }
+
+        public Entities.Trainer UpdateTrainer(Entities.Trainer t)
+        {
+            Console.WriteLine("\n==========Welcome===========\n");
+            Console.WriteLine("Enter your First name : ");
+            t.FirstName = Console.ReadLine();
+            Console.WriteLine("Enter your Last name : ");
+            t.LastName = Console.ReadLine();
+            Console.WriteLine("Enter your Gender : ");
+            t.Gender = Console.ReadLine();
+            Console.WriteLine("Enter your Password : ");
+            t.Password = string.Empty;
+            ConsoleKey key;
+            do
+            {
+                var keyInfo = Console.ReadKey(intercept: true);
+                key = keyInfo.Key;
+
+                if (key == ConsoleKey.Backspace && t.Password.Length > 0)
+                {
+                    Console.Write("\b \b");
+                    t.Password = t.Password[0..^1];
+                }
+                else if (!char.IsControl(keyInfo.KeyChar))
+                {
+                    Console.Write("*");
+                    t.Password += keyInfo.KeyChar;
+                }
+            } while (key != ConsoleKey.Enter);
+            Console.WriteLine("\nEnter your Phone Number : ");
+            t.Phone = Console.ReadLine();
+            Console.WriteLine("Enter your City : ");
+            t.City = Console.ReadLine();
+            Console.WriteLine("Enter your State : ");
+            t.State = Console.ReadLine();
+            Console.WriteLine("Enter your Country : ");
+            t.Country = Console.ReadLine();
+            Console.WriteLine("Please tell us something about yourself : ");
+            t.AboutMe = Console.ReadLine();
+
+            context.Trainers.Update(t);
+            context.SaveChanges();
+
+            return t;
+        }
+
+        //public Trainer UpdateTrainer(Trainer trainers)
+        //{
+        //    context.Trainers.Update(trainers);
+        //    context.SaveChanges();
+        //    return trainers;
+        //}
     }
 }

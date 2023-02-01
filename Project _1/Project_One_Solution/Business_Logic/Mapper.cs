@@ -1,16 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Business_Logic
 {
     public class Mapper
     {
-        public static Models.Trainer Map(Fluent_API.Entities.Trainer t)
+        public static  Models.Trainer Map(Fluent_API.Entities.Trainer t)
         {
             return new Models.Trainer()
             {
@@ -24,6 +18,23 @@ namespace Business_Logic
                 State = t.State,
                 Country = t.Country,
                 Aboutme = t.AboutMe
+
+            };
+        }
+        public static Fluent_API.Entities.Trainer Map(Models.Trainer t)
+        {
+            return new Fluent_API.Entities.Trainer()
+            {
+
+                FirstName = t.firstName,
+                LastName = t.lastName,
+                Gender = t.Gender,
+                Email = t.Email,
+                Phone = t.Phone,
+                City = t.City,
+                State = t.State,
+                Country = t.Country,
+                AboutMe = t.Aboutme
 
             };
         }
@@ -97,23 +108,6 @@ namespace Business_Logic
         public static IEnumerable<Models.Additional> Map(IEnumerable<Fluent_API.Entities.AdditionalDetail> additionalDetails)
         {
             return additionalDetails.Select(Map);
-        }
-
-        public static Trainer MapTrainer(Models.Trainer at)
-        {
-            return new Trainer()
-            {
-                firstName = at.firstName,
-                lastName = at.lastName,
-                Gender = at.Gender,
-                Email = at.Email,
-                Password = at.Password,
-                Phone = at.Phone,
-                City = at.City,
-                State = at.State,
-                Country = at.Country,
-                Aboutme = at.Aboutme
-            };
         }
     }
 }

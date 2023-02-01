@@ -21,8 +21,8 @@ CREATE TABLE [Trainer] (
 -----------------------------SKILLS TABLE--------------------------------------------------------------------------------
 CREATE TABLE [Skills] (
   [Id1] int IDENTITY(1,1) PRIMARY KEY,
-  [Trainer_ID] int,
-  [Skills] varchar(30),
+  [Trainer_ID] int not null,
+  [SkillName] varchar(30),
   FOREIGN KEY ([Trainer_ID]) REFERENCES [Trainer]([Trainer_ID]) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -70,9 +70,7 @@ insert into Trainer(firstName,lastName,Gender,Email,Password,Phone,City,State,Co
 VALUES('Sai','Krishna','Male','Sai@gmail.com','Sai123@',9480314998,'Bengalore','Karnataka','India','I am a football player');
 
 -----------------------Inserting Values for Skills-----------------------------------------------------------------------------
-insert into Skills(Trainer_ID,Skills) VALUES(1,'Python programming'),
-                                                (1,'SQL'),
-                                                    (1,'C#');
+insert into Skills(Trainer_ID,SkillName) VALUES(23,'C#');
                                                 
 -----------------------Inserting Values for Educations Data---------------------------------------------------------------------
 insert into Educations(Trainer_ID,College_University,Degree,StartDate,EndDate,Description) 
@@ -96,4 +94,4 @@ select * from WorkExperience;
 select * from AdditionalDetails;
 ------------------------------------------------------------------------------------------------------------------------------
 
-drop table AdditionalDetails;
+drop table Skills;

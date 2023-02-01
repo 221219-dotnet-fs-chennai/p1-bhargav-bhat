@@ -1,5 +1,7 @@
-﻿using Models;
-
+﻿
+using Fluent_API;
+using Models;
+using System.Xml;
 
 namespace Business_Logic
 {
@@ -7,52 +9,50 @@ namespace Business_Logic
     {
 
         ITrainerRepo<Fluent_API.Entities.Trainer> repo;
-        ISkillsRepo<Fluent_API.Entities.Skill> skillRepo;
-        IWork<Fluent_API.Entities.WorkExperience> work;
-        IEdu<Fluent_API.Entities.Education> edu;
-        IAdditionals<Fluent_API.Entities.AdditionalDetail> addit;
+
         public Logic()
         {
-            repo = new Fluent_API.Entities.EFRepo();
-            skillRepo=new Fluent_API.Entities.EFSkillsRepo();
-            work = new Fluent_API.Entities.EFWorkExp();
-            edu = new Fluent_API.Entities.EFEducational();
-            addit = new Fluent_API.Entities.EFAdditional();
+            repo = new EFRepo();
         }
 
         public Trainer AddTrainers(Trainer trainer)
         {
-            return Mapper.MapTrainer(repo.AddTrainer(trainer));
+            return Mapper.Map(repo.AddTrainer(Mapper.Map(trainer)));
         }
 
-        public IEnumerable<Trainer> FetchTrain(string email)
+        public Trainer RemoveTrainers(string email)
         {
-            return Mapper.Map(repo.FetchTrainer(email));
+            var d=repo.DeleteTrainer(email);
+            return Mapper.Map(d);
         }
 
-        public IEnumerable<Additional> GetAdditionals()
+        public Trainer UpdateTrainer(string email,Trainer trainer)
         {
-            return Mapper.Map(addit.DisplayAdditional());
+            var tra=(from tr in repo.DisplayTrainer()
+                     where tr.Email == email
+                     select tr).FirstOrDefault();
+
+            if(tra!=null)
+            {
+                tra.Email= email;
+                tra.FirstName = trainer.firstName;
+                tra.LastName = trainer.lastName;
+                tra.Gender = trainer.Gender;
+                tra.Password = trainer.Password;
+                tra.Phone= trainer.Phone;
+                tra.City= trainer.City;
+                tra.State= trainer.State;
+                tra.Country= trainer.Country;
+                tra.AboutMe = trainer.Aboutme;
+
+                tra=repo.UpdateTrainer(tra);
+            }
+            return Mapper.Map(tra);
         }
 
-        public IEnumerable<Educate> GetEducations()
-        {
-            return Mapper.Map(edu.DisplayEducations());
-        }
-
-        public IEnumerable<Models.Skills> GetSkills()
-        {
-            return Mapper.Map(skillRepo.DisplaySkills());
-        }
-
-        public IEnumerable<Models.Trainer> GetTrainers()
+        IEnumerable<Trainer> ILogic.GetTrainers()
         {
             return Mapper.Map(repo.DisplayTrainer());
-        }
-
-        public IEnumerable<WorkE> GetWorkExperiences()
-        {
-            return Mapper.Map(work.DisplayWork());
         }
     }
 }
