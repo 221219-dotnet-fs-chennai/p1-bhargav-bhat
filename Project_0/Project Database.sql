@@ -96,12 +96,3 @@ select * from AdditionalDetails;
 
 drop table Trainer_NEW;
 
-
-WITH CTE AS (
-  SELECT firstName,lastName ROW_NUMBER() OVER (ORDER BY column1) AS RowNum
-  FROM Trainer
-)
-SELECT column1, column2, ..., columnN
-FROM CTE
-WHERE RowNum BETWEEN 1 AND 1000
-AND RowNum NOT BETWEEN 100 AND 200;
