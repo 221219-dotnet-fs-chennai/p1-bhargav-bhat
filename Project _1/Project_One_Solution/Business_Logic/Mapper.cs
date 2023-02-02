@@ -8,11 +8,12 @@ namespace Business_Logic
         {
             return new Models.Trainer()
             {
-
+                Id=t.TrainerId,
                 firstName = t.FirstName,
                 lastName = t.LastName,
                 Gender = t.Gender,
-                Email = t.Email,
+                Email= t.Email,
+                Password=t.Password,
                 Phone = t.Phone,
                 City = t.City,
                 State = t.State,
@@ -25,11 +26,12 @@ namespace Business_Logic
         {
             return new Fluent_API.Entities.Trainer()
             {
-
+                TrainerId=t.Id,
                 FirstName = t.firstName,
                 LastName = t.lastName,
                 Gender = t.Gender,
-                Email = t.Email,
+                Email= t.Email,
+                Password=t.Password,
                 Phone = t.Phone,
                 City = t.City,
                 State = t.State,
@@ -53,6 +55,14 @@ namespace Business_Logic
             };
         }
 
+        public static Fluent_API.Entities.Skill Map(Models.Skills s)
+        {
+            return new Fluent_API.Entities.Skill()
+            {
+                Id1 = s.Id,
+                SkillName = s.skillName
+            };
+        }
         public static IEnumerable<Models.Skills> Map(IEnumerable<Fluent_API.Entities.Skill> skills)
         {
             return skills.Select(Map);

@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Business_Logic\Business_Logic.csproj" />
-    <ProjectReference Include="..\Data Logic\Data Logic.csproj" />
     <ProjectReference Include="..\Fluent_API\Fluent_API.csproj" />
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>

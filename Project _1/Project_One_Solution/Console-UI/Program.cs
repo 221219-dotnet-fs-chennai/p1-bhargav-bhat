@@ -7,19 +7,34 @@ public static class Program
     public static void Main(string[] args)
     {
         Models.Trainer trainer = new Models.Trainer();
-        EFSkillsRepo e = new EFSkillsRepo();
-        EFRepo eFS = new EFRepo();
+        Models.Skills skills= new Models.Skills();
+        ISkills e = new SkillsLogic();
         ILogic l = new Logic();
-
-
-        //l.AddTrainers(trainer); ---------------------adding trainer
-
-
         Console.WriteLine("Enter email to fetch data : ");
         string email = Console.ReadLine();
+        int id=e.IdFetcher(email);
+
+        //e.AddSkill(id, skills);
+        //e.DeleteSl(id);
+
+        //l.AddTrainers(trainer); //---------------------adding trainer
+
+        //var t=l.GetTrainers();
+        //foreach (var i in t)
+        //{
+        //    Console.WriteLine(i);
+        //}
 
 
-        l.UpdateTrainer(email, trainer);
+
+
+        //var sk=e.GetSkills(email);
+        //foreach(var i in sk)
+        //{
+        //    Console.WriteLine(i.ToString());
+        //}
+
+        //l.UpdateTrainer(email, trainer); ---------------update
 
         //l.RemoveTrainers(email);-----------------------------Delete
 

@@ -34,7 +34,6 @@ namespace Business_Logic
 
             if(tra!=null)
             {
-                tra.Email= email;
                 tra.FirstName = trainer.firstName;
                 tra.LastName = trainer.lastName;
                 tra.Gender = trainer.Gender;

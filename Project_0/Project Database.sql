@@ -4,7 +4,7 @@ create DATABASE TrainerDatabaseProject;
 -------------------------------------------TABLE CREATIONS-----------------------------------------------------------------
 
 -----------------------------TRAINER TABLE--------------------------------------------------------------------------------
-CREATE TABLE [Trainer] (
+CREATE TABLE [Trainer_NEW] (
   [Trainer_ID] int IDENTITY(1,1) PRIMARY KEY,
   [firstName] varchar(30),
   [lastName] varchar(30),
@@ -67,7 +67,7 @@ CREATE TABLE [AdditionalDetails] (
 
 -----------------------Inserting Values for Trainer-----------------------------------------------------------------------------
 insert into Trainer(firstName,lastName,Gender,Email,Password,Phone,City,State,Country,AboutMe) 
-VALUES('Sai','Krishna','Male','Sai@gmail.com','Sai123@',9480314998,'Bengalore','Karnataka','India','I am a football player');
+VALUES('Sai','Krishna','Male','Saik@gmail.com','SaiK123@',9480314998,'Bengalore','Karnataka','India','I am a football player');
 
 -----------------------Inserting Values for Skills-----------------------------------------------------------------------------
 insert into Skills(Trainer_ID,SkillName) VALUES(23,'C#');
@@ -94,4 +94,14 @@ select * from WorkExperience;
 select * from AdditionalDetails;
 ------------------------------------------------------------------------------------------------------------------------------
 
-drop table Skills;
+drop table Trainer_NEW;
+
+
+WITH CTE AS (
+  SELECT firstName,lastName ROW_NUMBER() OVER (ORDER BY column1) AS RowNum
+  FROM Trainer
+)
+SELECT column1, column2, ..., columnN
+FROM CTE
+WHERE RowNum BETWEEN 1 AND 1000
+AND RowNum NOT BETWEEN 100 AND 200;
