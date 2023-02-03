@@ -8,26 +8,19 @@ namespace Business_Logic
     public class SkillsLogic : ISkills
     {
         TrainerDatabaseProjectContext context = new TrainerDatabaseProjectContext();
-        ISkillsRepo<Fluent_API.Entities.Skill> srepo;
-        public SkillsLogic() 
+        ISkillsRepo srepo;
+        public SkillsLogic(ISkillsRepo _srepo) 
         {
-            srepo = new EFSkillsRepo();
+            srepo = _srepo;
         }
 
-        public int IdFetcher(string email)
-        {
-            var ss = (from p in context.Trainers
-                      where p.Email == email
-                      select p.TrainerId).SingleOrDefault();
-                      
-            return ss;
-        }
+        
 
-        public Skills AddSkill(int s,Skills skill)
+        public Skills AddSkill(int s,string name)
         {
             Skill ss = new Skill();
             ss.TrainerId = s;
-            ss.SkillName = skill.skillName;
+            ss.SkillName = name;
 
             ss = srepo.AddSkills(ss);
             return Mapper.Map(ss);
@@ -39,9 +32,9 @@ namespace Business_Logic
             return Mapper.Map(srepo.DisplaySkills(email));
         }
 
-        public Skills DeleteSl(int s)
+        public Skills DeleteSl(int id,string sname)
         {
-            var d=srepo.DeleteSkill(s);
+            var d=srepo.DeleteSkill(id,sname);
             return Mapper.Map(d);
         }
     }

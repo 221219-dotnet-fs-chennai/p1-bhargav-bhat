@@ -11,8 +11,8 @@ namespace Services.Controllers
     [ApiController]
     public class TrainerControl : ControllerBase
     {
-        ILogic _logic;
-        public TrainerControl(ILogic logic) 
+        ITrainerLogic _logic;
+        public TrainerControl(ITrainerLogic logic) 
         {
             _logic= logic;
         }
@@ -86,7 +86,7 @@ namespace Services.Controllers
             try
             {
                 var t = _logic.AddTrainers(trainer);
-                return Created("Add", t); //201 -> Serialization of restaurant object
+                return Created("Add", t); 
             }
             catch (Exception e)
             {

@@ -3,10 +3,23 @@
 
 namespace Fluent_API
 {
-    public class EFRepo : ITrainerRepo<Entities.Trainer>
+    public class EFTrainerRepo : ITrainerRepo
     {
-        TrainerDatabaseProjectContext context = new TrainerDatabaseProjectContext();
+        private readonly TrainerDatabaseProjectContext context;
 
+        public EFTrainerRepo(TrainerDatabaseProjectContext _context)
+        {
+            context = _context;
+        }
+
+        public int IdFetcher(string email)
+        {
+            var ss = (from p in context.Trainers
+                      where p.Email == email
+                      select p.TrainerId).SingleOrDefault();
+
+            return ss;
+        }
         public Trainer AddTrainer(Trainer t)
         {
              context.Trainers.Add(t);

@@ -66,9 +66,9 @@ insert into Trainer(firstName,lastName,Gender,Email,Password,Phone,City,State,Co
 VALUES('Sai','Krishna','Male','Sai@gmail.com','Sai123@',9480314998,'Bengalore','Karnataka','India','I am a football player');
 
 -----------------------Inserting Values for Skills-----------------------------------------------------------------------------
-insert into Skills(Trainer_ID,Skills) VALUES(1,'Python programming'),
-                                                (1,'SQL'),
-                                                    (1,'C#');
+insert into Skills(Trainer_ID,SkillName) VALUES
+                                                (38,'SQL'),
+                                                    (38,'C#');
                                                 
 -----------------------Inserting Values for Educations Data---------------------------------------------------------------------
 insert into Educations(Trainer_ID,College_University,Degree,StartDate,EndDate,Description) 

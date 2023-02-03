@@ -7,10 +7,8 @@ namespace Business_Logic
     public interface ISkills
     {
         IEnumerable<Skills> GetSkills(string email);
-        Skills AddSkill(int s,Skills skill);
+        Skills AddSkill(int s, string name);
 
-        int IdFetcher(string email);
-
-        Skills DeleteSl(int s);
+        Skills DeleteSl(int s,string sname);
     }
 }

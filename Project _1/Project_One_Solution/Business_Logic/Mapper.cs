@@ -89,12 +89,25 @@ namespace Business_Logic
         {
             return new Models.Educate()
             {
-                Id = e.Id2,
+                Id = (int)e.TrainerId,
                 College_Uni = e.CollegeUniversity,
                 Degree = e.Degree,
                 Start_Date = e.StartDate,
                 End_Date = e.EndDate,
                 Descriptions = e.Description
+            };
+        }
+
+        public static Fluent_API.Entities.Education Map(Models.Educate e)
+        {
+            return new Fluent_API.Entities.Education()
+            {
+                TrainerId = e.Id,
+                CollegeUniversity = e.College_Uni,
+                Degree = e.Degree,
+                StartDate = e.Start_Date,
+                EndDate = e.End_Date,
+                Description = e.Descriptions
             };
         }
 

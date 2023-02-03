@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Fluent_API
 {
-    public interface ISkillsRepo<T>
+    public interface ISkillsRepo
     {
-        List<T> DisplaySkills(string email);
-        Skill AddSkills(Skill skill);
-        Skill DeleteSkill(int id);
+        List<Skill> DisplaySkills(string email);
+        Skill AddSkills( Skill skill);
+        Skill DeleteSkill(int id,string name);
 
     }
 }

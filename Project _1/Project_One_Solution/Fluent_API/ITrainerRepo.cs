@@ -3,16 +3,18 @@ using Fluent_API.Entities;
 
 namespace Fluent_API
 {
-    public interface ITrainerRepo<T>
+    public interface ITrainerRepo
     {
-        List<T> DisplayTrainer();
+        List<Trainer> DisplayTrainer();
 
         Trainer AddTrainer(Trainer trainer);
 
         //List<T> FetchTrainer(string email);
 
-        T UpdateTrainer(T trainer);
+        Trainer UpdateTrainer(Trainer trainer);
 
-        T DeleteTrainer(string email);
+        Trainer DeleteTrainer(string email);
+
+        int IdFetcher(string email);
     }
 }

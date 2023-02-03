@@ -5,14 +5,14 @@ using System.Xml;
 
 namespace Business_Logic
 {
-    public class Logic : ILogic
+    public class TrainerLogic : ITrainerLogic
     {
 
-        ITrainerRepo<Fluent_API.Entities.Trainer> repo;
+        ITrainerRepo repo;
 
-        public Logic()
+        public TrainerLogic(ITrainerRepo _repo)
         {
-            repo = new EFRepo();
+            repo = _repo;
         }
 
         public Trainer AddTrainers(Trainer trainer)
@@ -49,7 +49,7 @@ namespace Business_Logic
             return Mapper.Map(tra);
         }
 
-        IEnumerable<Trainer> ILogic.GetTrainers()
+        IEnumerable<Trainer> ITrainerLogic.GetTrainers()
         {
             return Mapper.Map(repo.DisplayTrainer());
         }

@@ -12,17 +12,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-var config = builder.Configuration.GetConnectionString("Trainers_Database");
-
+// Connection string configaration
+var config = builder.Configuration.GetConnectionString("TrainersDatabase");
 builder.Services.AddDbContext<TrainerDatabaseProjectContext>(options => options.UseSqlServer(config));
 
-//We are creating the instance of EFRepo by Dependency Inverison
-//builder.Services.AddScoped<IRepo<DataFluentApi.Entities.Restaurant>, EFRepo>();
-builder.Services.AddScoped<ITrainerRepo<Fluent_API.Entities.Trainer>, Fluent_API.EFRepo>();
-
-//We are creating the instance of Logic by Dependency Inverison
-builder.Services.AddScoped<ILogic,Logic>();
+// Trainer table operations configuration
+builder.Services.AddScoped<ITrainerRepo, EFTrainerRepo>();
+builder.Services.AddScoped<ITrainerLogic,TrainerLogic>();
+//Skill table operations configurations
+builder.Services.AddScoped<ISkillsRepo,EFSkillsRepo>();
+builder.Services.AddScoped<ISkills,SkillsLogic>();
+//Education table operations configuration
+builder.Services.AddScoped<IEducateRepo,EFEducational>();
+builder.Services.AddScoped<IEducationLogic,EducationLogic>();
 
 var app = builder.Build();
 

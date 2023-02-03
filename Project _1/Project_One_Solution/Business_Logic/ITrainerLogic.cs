@@ -4,7 +4,7 @@ using Models;
 
 namespace Business_Logic
 {
-    public interface ILogic
+    public interface ITrainerLogic
     {
         IEnumerable<Trainer> GetTrainers();
         Trainer AddTrainers(Trainer trainer);

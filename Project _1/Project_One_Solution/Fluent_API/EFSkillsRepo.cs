@@ -3,27 +3,24 @@ using Models;
 
 namespace Fluent_API.Entities
 {
-    public class EFSkillsRepo : ISkillsRepo<Skill>
+    public class EFSkillsRepo : ISkillsRepo
     {
-        TrainerDatabaseProjectContext context = new TrainerDatabaseProjectContext();
+        TrainerDatabaseProjectContext context;
 
+        public EFSkillsRepo(TrainerDatabaseProjectContext _context)
+        {
+            context= _context;
+        }
         public Skill AddSkills(Skill skill)
         {
-            Console.WriteLine("\n==========Welcome===========\n");
-            Console.WriteLine("Enter your skill : ");
-            skill.SkillName=Console.ReadLine();
-
             context.Skills.Add(skill);
             context.SaveChanges();
             return skill;
         }
 
-        public Skill DeleteSkill(int id)
+        public Skill DeleteSkill(int id,string sname)
         {
-            Console.WriteLine("\n==========Welcome===========\n");
-            Console.WriteLine("Enter your skill want to delete : ");
-            string SkillName = Console.ReadLine();
-            var sk=context.Skills.Where(x => x.SkillName==SkillName).FirstOrDefault();
+            var sk=context.Skills.Where(x => x.SkillName==sname && x.TrainerId==id).SingleOrDefault();
             context.Skills.Remove(sk);
             context.SaveChanges();
             return sk;
