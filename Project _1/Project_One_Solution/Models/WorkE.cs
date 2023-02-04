@@ -15,49 +15,8 @@ namespace Models
         public int Id { get; set; }
         public string Company_Name { get; set; }
         public string Role { get; set; }
-
-        public string startdate;
-        public string StartDate 
-        {
-            get
-            {
-                return startdate;
-            }
-            set
-            {
-                string pattern = @"^((0[1-9])|(1[0-2]))\/(\d{4})$";
-                var IsDateCheck = Regex.IsMatch(value, pattern);
-                if (IsDateCheck)
-                {
-                    startdate = value;
-                }
-                else
-                {
-                    throw new InvalidDataException("Invalid Data, Please try again");
-                }
-            }
-        }
-        public string enddate;
-        public string EndDate 
-        {
-            get
-            {
-                return enddate;
-            }
-            set
-            {
-                string pattern = @"^((0[1-9])|(1[0-2]))\/(\d{4})$";
-                var IsDateCheck = Regex.IsMatch(value, pattern);
-                if (IsDateCheck)
-                {
-                    enddate = value;
-                }
-                else
-                {
-                    throw new InvalidDataException("Invalid Data, Please try again");
-                }
-            }
-        }
+        public string StartDate { get; set; } = null!;
+        public string EndDate { get; set; }=null!;
         public string Description { get; set; }
 
         public override string ToString()

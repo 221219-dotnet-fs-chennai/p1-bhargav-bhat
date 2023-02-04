@@ -91,4 +91,3 @@ select * from Educations;
 select * from WorkExperience;
 select * from AdditionalDetails;
 ------------------------------------------------------------------------------------------------------------------------------
-

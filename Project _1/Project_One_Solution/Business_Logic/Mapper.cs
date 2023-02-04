@@ -11,15 +11,14 @@ namespace Business_Logic
                 Id=t.TrainerId,
                 firstName = t.FirstName,
                 lastName = t.LastName,
-                Gender = t.Gender,
-                Email= t.Email,
+                Gender = Validation.Gender(t.Gender),
+                Email= Validation.Email(t.Email),
                 Password=Validation.Password(t.Password),
-                Phone = t.Phone,
+                Phone = Validation.Phone(t.Phone),
                 City = t.City,
                 State = t.State,
                 Country = t.Country,
                 Aboutme = t.AboutMe
-
             };
         }
         public static Fluent_API.Entities.Trainer Map(Models.Trainer t)
@@ -29,18 +28,16 @@ namespace Business_Logic
                 TrainerId=t.Id,
                 FirstName = t.firstName,
                 LastName = t.lastName,
-                Gender = t.Gender,
-                Email= t.Email,
+                Gender = Validation.Gender(t.Gender),
+                Email= Validation.Email(t.Email),
                 Password=Validation.Password(t.Password),
-                Phone = t.Phone,
+                Phone = Validation.Phone(t.Phone),
                 City = t.City,
                 State = t.State,
                 Country = t.Country,
                 AboutMe = t.Aboutme
-
             };
         }
-
         public static IEnumerable<Models.Trainer> Map(IEnumerable<Fluent_API.Entities.Trainer> trainers)
         {
             return trainers.Select(Map);
@@ -72,11 +69,24 @@ namespace Business_Logic
         {
             return new Models.WorkE()
             {
-                Id = w.Id3,
+                Id = (int) w.TrainerId,
                 Company_Name = w.CompanyName,
                 Role = w.Role,
-                StartDate = w.StartDate,
-                EndDate = w.EndDate,
+                StartDate = Validation.startdate(w.StartDate),
+                EndDate = Validation.enddate(w.EndDate),
+                Description = w.Description
+            };
+        }
+
+        public static Fluent_API.Entities.WorkExperience Map(Models.WorkE w)
+        {
+            return new Fluent_API.Entities.WorkExperience()
+            {
+                TrainerId = w.Id,
+                CompanyName = w.Company_Name,
+                Role = w.Role,
+                StartDate = Validation.startdate(w.StartDate),
+                EndDate = Validation.enddate(w.EndDate),
                 Description = w.Description
             };
         }

@@ -22,6 +22,7 @@ namespace Services.Controllers
         {
             try
             {
+                
                 var trainer=_logic.GetTrainers();
                 if (trainer != null)
                     return Ok(trainer);
