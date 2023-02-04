@@ -4,16 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models;
+using System.Text.RegularExpressions;
 
 namespace Business_Logic
 {
-    public class Validation
+    public static class Validation
     {
-        public static int HandleStringNulls(int? name)
+        public static string Password(string p)
         {
-            if (name.HasValue)
-                return name.Value;
-            return 0;
+            string pattern = @"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\S+$).{8,20}$";
+            var IsEmailCheck = Regex.IsMatch(p, pattern);
+            if (IsEmailCheck)
+                return p;
+            else
+                return null;
+            
         }
     }
 }

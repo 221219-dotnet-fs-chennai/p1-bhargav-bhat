@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluent_API", "Fluent_API\Fl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{64E0C5E6-8AD9-4C30-91A6-F54D34FB5BF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{258FAACA-54CF-4A82-9F3F-A0DA8E0F7B4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{258FAACA-54CF-4A82-9F3F-A0DA8E0F7B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{89F7A972-A428-4D15-A224-1F638EBE2D69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{258FAACA-54CF-4A82-9F3F-A0DA8E0F7B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{258FAACA-54CF-4A82-9F3F-A0DA8E0F7B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{258FAACA-54CF-4A82-9F3F-A0DA8E0F7B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F7A972-A428-4D15-A224-1F638EBE2D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F7A972-A428-4D15-A224-1F638EBE2D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F7A972-A428-4D15-A224-1F638EBE2D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F7A972-A428-4D15-A224-1F638EBE2D69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

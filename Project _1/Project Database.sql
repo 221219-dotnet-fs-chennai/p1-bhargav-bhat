@@ -72,7 +72,7 @@ insert into Skills(Trainer_ID,SkillName) VALUES
                                                 
 -----------------------Inserting Values for Educations Data---------------------------------------------------------------------
 insert into Educations(Trainer_ID,College_University,Degree,StartDate,EndDate,Description) 
-VALUES(1,'VVIET Mysore','B.E','08/2018','08/2022','Secured 84%');
+VALUES(30,'VVIET Mysore','B.E','08/2018','08/2022','Secured 84%');
 
 -----------------------Inserting Values for WorkExperirnce Data-----------------------------------------------------------------
 insert into WorkExperience(Trainer_ID,Company_Name,Role,StartDate,EndDate,Description)
