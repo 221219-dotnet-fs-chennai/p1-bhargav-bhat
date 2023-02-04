@@ -7,13 +7,43 @@ using System.Threading.Tasks;
 
 namespace Fluent_API.Entities
 {
-    public class EFAdditional : IAdditionals<AdditionalDetail>
+    public class EFAdditional : IAdditionalsRepo
     {
-        TrainerDatabaseProjectContext context = new TrainerDatabaseProjectContext();
-
-        public List<AdditionalDetail> DisplayAdditional()
+        TrainerDatabaseProjectContext context;
+        public EFAdditional(TrainerDatabaseProjectContext _context)
         {
-            return context.AdditionalDetails.ToList();
+            context = _context;
+        }
+
+        public AdditionalDetail AddAdditional(AdditionalDetail ad)
+        {
+            context.AdditionalDetails.Add(ad);
+            context.SaveChanges();
+            return ad;
+        }
+
+        public AdditionalDetail DeleteAdditional(int id, string name)
+        {
+            var sk = context.AdditionalDetails.Where(x => x.TrainerId == id & x.Title == name).SingleOrDefault();
+            context.AdditionalDetails.Remove(sk);
+            context.SaveChanges();
+            return sk;
+        }
+
+        public List<AdditionalDetail> DisplayAdditional(string email)
+        {
+            var ss = from p in context.Trainers
+                     join s in context.AdditionalDetails on p.TrainerId equals s.TrainerId
+                     where p.Email == email
+                     select s;
+            return ss.ToList();
+        }
+
+        public AdditionalDetail UpdateAdditional(AdditionalDetail ad)
+        {
+            context.AdditionalDetails.Update(ad);
+            context.SaveChanges();
+            return ad;
         }
     }
 }

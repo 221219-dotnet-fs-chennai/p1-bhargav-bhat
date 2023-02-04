@@ -25,6 +25,12 @@ builder.Services.AddScoped<ISkills,SkillsLogic>();
 //Education table operations configuration
 builder.Services.AddScoped<IEducateRepo,EFEducational>();
 builder.Services.AddScoped<IEducationLogic,EducationLogic>();
+//Work Experience table details configurations
+builder.Services.AddScoped<IWorkRepo, EFWorkExpRepo>();
+builder.Services.AddScoped<IWork, WorkExperienceLogic>();
+// Additional details configurations
+builder.Services.AddScoped<IAdditionalsRepo, EFAdditional>();
+builder.Services.AddScoped<IAddLogic, AdditionalLogic>();
 
 var app = builder.Build();
 

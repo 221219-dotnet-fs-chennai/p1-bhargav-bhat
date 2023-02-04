@@ -120,11 +120,22 @@ namespace Business_Logic
         {
             return new Models.Additional()
             {
-                Id = ad.Id4,
+                Id = (int)ad.TrainerId,
                 Title = ad.Title,
                 Achievments = ad.Achievements,
                 Publications = ad.Publications,
                 Volunteering_Experiences = ad.VolunteeringExperiences
+            };
+        }
+        public static Fluent_API.Entities.AdditionalDetail Map(Models.Additional ad)
+        {
+            return new Fluent_API.Entities.AdditionalDetail()
+            {
+                TrainerId=ad.Id,
+                Title= ad.Title,
+                Achievements=ad.Achievments,
+                Publications=ad.Publications,
+                VolunteeringExperiences=ad.Volunteering_Experiences
             };
         }
 
