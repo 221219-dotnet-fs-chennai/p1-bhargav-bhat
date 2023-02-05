@@ -94,5 +94,3 @@ select * from WorkExperience;
 select * from AdditionalDetails;
 ------------------------------------------------------------------------------------------------------------------------------
 
-drop table Trainer_NEW;
-
