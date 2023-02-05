@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Models;
+using Serilog;
 
 namespace Services.Controllers
 {
@@ -22,7 +23,7 @@ namespace Services.Controllers
         {
             try
             {
-                
+                Log.Information("---------- Fetching Trainers -------------");
                 var trainer=_logic.GetTrainers();
                 if (trainer != null)
                     return Ok(trainer);
@@ -33,6 +34,7 @@ namespace Services.Controllers
             }
             catch(Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -42,13 +44,15 @@ namespace Services.Controllers
         {
             try
             {
-                if(!string.IsNullOrEmpty(email))
+                Log.Information("---------- Updating Trainer details -------------");
+                if (!string.IsNullOrEmpty(email))
                 {
                     _logic.UpdateTrainer(email, trainer);
                     return Ok(trainer);
                 }
                 else
                 {
+                    Log.Information("---------- Exception Handled -------------");
                     return BadRequest("Something Wrong,Its not updated");
                 }
             }
@@ -66,6 +70,7 @@ namespace Services.Controllers
             {
                 if (!string.IsNullOrEmpty(email))
                 {
+                    Log.Information("---------- Deleting Trainer -------------");
                     var del = _logic.RemoveTrainers(email);
                     if (del != null)
                         return Ok(del);
@@ -77,6 +82,7 @@ namespace Services.Controllers
             }
             catch(Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -86,11 +92,13 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Adding Trainer -------------");
                 var t = _logic.AddTrainers(trainer);
                 return Created("Add", t); 
             }
             catch (Exception e)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(e.Message);
             }
         }

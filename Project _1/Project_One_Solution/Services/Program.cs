@@ -2,6 +2,7 @@ using Business_Logic;
 using Fluent_API;
 using Fluent_API.Entities;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+Log.Logger = new LoggerConfiguration().WriteTo.File(@"E:\GitRepo\p1-bhargav-bhat\Project _1\Project_One_Solution\Services\Logs\logfile.txt", rollingInterval:RollingInterval.Day,rollOnFileSizeLimit:true).CreateLogger();
+
 // Connection string configaration
+Log.Information("----------Trying to connect with database-------------");
 var config = builder.Configuration.GetConnectionString("TrainersDatabase");
 builder.Services.AddDbContext<TrainerDatabaseProjectContext>(options => options.UseSqlServer(config));
 
@@ -32,6 +36,7 @@ builder.Services.AddScoped<IWork, WorkExperienceLogic>();
 builder.Services.AddScoped<IAdditionalsRepo, EFAdditional>();
 builder.Services.AddScoped<IAddLogic, AdditionalLogic>();
 
+Log.Information("---------- Application Building -------------");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -46,5 +51,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+Log.Information("---------- Application Running -------------");
 app.Run();
+

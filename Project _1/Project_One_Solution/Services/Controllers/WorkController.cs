@@ -2,6 +2,7 @@
 using Fluent_API;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace Services.Controllers
 {
@@ -23,6 +24,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Fetching Work Experience Details -------------");
                 var sk = repo.GetWork(email);
                 if (sk != null)
                     return Ok(sk);
@@ -31,6 +33,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -40,6 +43,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Updating Work Experience details -------------");
                 int Id = trepo.IdFetcher(email);
                 var ed = repo.UpdateWorkExp(Id, email, Company_Name, work);
                 if (ed != null)
@@ -49,6 +53,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -59,6 +64,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Deleting Work Details -------------");
                 int id = trepo.IdFetcher(email);
                 var sk = repo.DeleteWork(id, Company_Name);
                 if (sk != null) return Ok(sk);
@@ -67,6 +73,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -77,6 +84,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Adding Work Details -------------");
                 int id = trepo.IdFetcher(email);
                 var sk = repo.AddWork(id, work);
                 if (sk != null) return Ok(sk);
@@ -85,6 +93,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }

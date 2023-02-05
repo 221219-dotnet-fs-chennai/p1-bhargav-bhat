@@ -2,6 +2,7 @@
 using Fluent_API;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace Services.Controllers
 {
@@ -22,6 +23,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Fetching Educational Details -------------");
                 var sk = repo.GetEducation(email);
                 if (sk != null)
                     return Ok(sk);
@@ -30,6 +32,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -39,6 +42,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Updating Educational Details -------------");
                 int Id = trepo.IdFetcher(email);
                 var ed = repo.UpdateEdu(Id,email,College_Name, educate);
                 if (ed!=null)
@@ -48,6 +52,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -58,6 +63,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Deleting Educational Details -------------");
                 int id = trepo.IdFetcher(email);
                 var sk = repo.DeleteEducation(id, College_Name);
                 if (sk != null) return Ok(sk);
@@ -66,6 +72,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -76,6 +83,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Adding Educational details -------------");
                 int id = trepo.IdFetcher(email);
                 var sk = repo.AddEducation(id, educate);
                 if (sk != null) return Ok(sk);
@@ -84,6 +92,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }

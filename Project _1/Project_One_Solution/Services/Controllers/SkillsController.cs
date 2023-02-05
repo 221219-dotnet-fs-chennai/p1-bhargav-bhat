@@ -2,6 +2,7 @@
 using Fluent_API;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace Services.Controllers
 {
@@ -22,6 +23,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Fetching Skills -------------");
                 var sk = _skills.GetSkills(email);
                 if (sk != null)
                     return Ok(sk);
@@ -30,6 +32,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -40,6 +43,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Deleting skills -------------");
                 int id = irepo.IdFetcher(email);
                 var sk = _skills.DeleteSl(id, Skill_Name);
                 if (sk != null) return Ok(sk);
@@ -48,6 +52,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
@@ -58,6 +63,7 @@ namespace Services.Controllers
         {
             try
             {
+                Log.Information("---------- Adding skills -------------");
                 int id = irepo.IdFetcher(email);
                 var sk = _skills.AddSkill(id, Skill_Name);
                 if (sk != null) return Ok(sk);
@@ -66,6 +72,7 @@ namespace Services.Controllers
             }
             catch (Exception ex)
             {
+                Log.Information("---------- Exception Handled -------------");
                 return BadRequest(ex.Message);
             }
         }
