@@ -11,10 +11,10 @@ namespace Business_Logic
                 Id=t.TrainerId,
                 firstName = t.FirstName,
                 lastName = t.LastName,
-                Gender = Validation.Gender(t.Gender),
-                Email= Validation.Email(t.Email),
-                Password=Validation.Password(t.Password),
-                Phone = Validation.Phone(t.Phone),
+                Gender = t.Gender,
+                Email= t.Email,
+                Password=t.Password,
+                Phone = t.Phone,
                 City = t.City,
                 State = t.State,
                 Country = t.Country,
@@ -28,10 +28,10 @@ namespace Business_Logic
                 TrainerId=t.Id,
                 FirstName = t.firstName,
                 LastName = t.lastName,
-                Gender = Validation.Gender(t.Gender),
-                Email= Validation.Email(t.Email),
-                Password=Validation.Password(t.Password),
-                Phone = Validation.Phone(t.Phone),
+                Gender = t.Gender,
+                Email= t.Email,
+                Password=t.Password,
+                Phone = t.Phone,
                 City = t.City,
                 State = t.State,
                 Country = t.Country,
@@ -69,11 +69,11 @@ namespace Business_Logic
         {
             return new Models.WorkE()
             {
-                Id = (int) w.TrainerId,
+                TrainerId = w.TrainerId,
                 Company_Name = w.CompanyName,
                 Role = w.Role,
-                StartDate = Validation.startdate(w.StartDate),
-                EndDate = Validation.enddate(w.EndDate),
+                StartDate = w.StartDate,
+                EndDate = w.EndDate,
                 Description = w.Description
             };
         }
@@ -82,11 +82,11 @@ namespace Business_Logic
         {
             return new Fluent_API.Entities.WorkExperience()
             {
-                TrainerId = w.Id,
+                TrainerId = w.TrainerId,
                 CompanyName = w.Company_Name,
                 Role = w.Role,
-                StartDate = Validation.startdate(w.StartDate),
-                EndDate = Validation.enddate(w.EndDate),
+                StartDate = w.StartDate,
+                EndDate = w.EndDate,
                 Description = w.Description
             };
         }
@@ -99,7 +99,7 @@ namespace Business_Logic
         {
             return new Models.Educate()
             {
-                Id = (int)e.TrainerId,
+                Id = e.TrainerId,
                 College_Uni = e.CollegeUniversity,
                 Degree = e.Degree,
                 Start_Date = e.StartDate,
@@ -130,7 +130,7 @@ namespace Business_Logic
         {
             return new Models.Additional()
             {
-                Id = (int)ad.TrainerId,
+                Id = ad.TrainerId,
                 Title = ad.Title,
                 Achievments = ad.Achievements,
                 Publications = ad.Publications,

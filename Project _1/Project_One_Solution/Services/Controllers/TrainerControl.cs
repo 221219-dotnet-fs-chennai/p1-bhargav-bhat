@@ -56,7 +56,11 @@ namespace Services.Controllers
                     return BadRequest("Something Wrong,Its not updated");
                 }
             }
-            catch(Exception ex)
+            catch (UserException u)
+            {
+                return BadRequest(u.Message);
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -80,10 +84,10 @@ namespace Services.Controllers
                 else
                     return BadRequest("Please insert valid Email Id");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 Log.Information("---------- Exception Handled -------------");
-                return BadRequest(ex.Message);
+                return BadRequest();
             }
         }
 
@@ -95,6 +99,10 @@ namespace Services.Controllers
                 Log.Information("---------- Adding Trainer -------------");
                 var t = _logic.AddTrainers(trainer);
                 return Created("Add", t); 
+            }
+            catch (UserException u)
+            {
+                return BadRequest(u.Message);
             }
             catch (Exception e)
             {

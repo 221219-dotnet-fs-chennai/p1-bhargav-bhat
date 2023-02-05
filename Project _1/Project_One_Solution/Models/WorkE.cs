@@ -9,14 +9,17 @@ namespace Models
 {
     public class WorkE
     {
-        public WorkE()
-        {
-        }
-        public int Id { get; set; }
+        public int Id3 { get; set; }
+        public int? TrainerId { get; set; }
+
         public string Company_Name { get; set; }
+
         public string Role { get; set; }
-        public string StartDate { get; set; } = null!;
-        public string EndDate { get; set; }=null!;
+
+        public string StartDate { get; set; }
+
+        public string EndDate { get; set; }
+
         public string Description { get; set; }
 
         public override string ToString()

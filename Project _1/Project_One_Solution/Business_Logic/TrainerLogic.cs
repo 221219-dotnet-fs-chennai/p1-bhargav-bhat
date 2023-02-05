@@ -17,6 +17,10 @@ namespace Business_Logic
 
         public Trainer AddTrainers(Trainer trainer)
         {
+            trainer.Gender = Validation.Gender(trainer.Gender);
+            trainer.Email = Validation.Email(trainer.Email);
+            trainer.Password= Validation.Password(trainer.Password);
+            trainer.Phone= Validation.Phone(trainer.Phone);
             return Mapper.Map(repo.AddTrainer(Mapper.Map(trainer)));
         }
 
@@ -36,9 +40,9 @@ namespace Business_Logic
             {
                 tra.FirstName = trainer.firstName;
                 tra.LastName = trainer.lastName;
-                tra.Gender = trainer.Gender;
-                tra.Password = trainer.Password;
-                tra.Phone= trainer.Phone;
+                tra.Gender = Validation.Gender(trainer.Gender);
+                tra.Password = Validation.Password(trainer.Password);
+                tra.Phone= Validation.Phone(trainer.Phone);
                 tra.City= trainer.City;
                 tra.State= trainer.State;
                 tra.Country= trainer.Country;

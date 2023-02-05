@@ -26,8 +26,8 @@ namespace Business_Logic
             w.TrainerId = s;
             w.CompanyName = work.Company_Name;
             w.Role=work.Role;
-            w.StartDate= work.StartDate;
-            w.EndDate= work.EndDate;
+            w.StartDate= Validation.startdate(work.StartDate);
+            w.EndDate= Validation.enddate(work.EndDate);
             w.Description= work.Description;
 
             w = repo.AddEWorkDetails(w);
@@ -56,8 +56,8 @@ namespace Business_Logic
                 tra.TrainerId= s;
                 tra.CompanyName= work.Company_Name;
                 tra.Role= work.Role;
-                tra.StartDate= work.StartDate;
-                tra.EndDate= work.EndDate;
+                tra.StartDate= Validation.startdate(work.StartDate);
+                tra.EndDate= Validation.enddate(work.EndDate);
                 tra.Description= work.Description;
 
                 tra=repo.UpdateWorkDetails(tra);

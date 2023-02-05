@@ -20,8 +20,8 @@ namespace Business_Logic
             ed.TrainerId = s;
             ed.CollegeUniversity = educate.College_Uni;
             ed.Degree= educate.Degree;
-            ed.StartDate = educate.Start_Date;
-            ed.EndDate= educate.End_Date;
+            ed.StartDate = Validation.startdate(educate.Start_Date);
+            ed.EndDate= Validation.enddate(educate.End_Date);
             ed.Description = educate.Descriptions;
 
             ed=repo.AddEducations(ed);

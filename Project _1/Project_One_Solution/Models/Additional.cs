@@ -11,7 +11,8 @@ namespace Models
         public Additional()
         {
         }
-        public int Id { get; set; }
+        public int? Id { get; set; }
+        public int id4 { get; set; }
         public string Title { get; set; }
         public string Achievments { get; set; }
         public string Publications { get; set; }

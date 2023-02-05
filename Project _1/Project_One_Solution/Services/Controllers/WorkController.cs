@@ -51,6 +51,10 @@ namespace Services.Controllers
                 else
                     return BadRequest("Sorry buddy No records present");
             }
+            catch (UserException u)
+            {
+                return BadRequest(u.Message);
+            }
             catch (Exception ex)
             {
                 Log.Information("---------- Exception Handled -------------");
@@ -90,6 +94,10 @@ namespace Services.Controllers
                 if (sk != null) return Ok(sk);
                 else
                     return BadRequest("Its not added you got an error ");
+            }
+            catch (UserException u)
+            {
+                return BadRequest(u.Message);
             }
             catch (Exception ex)
             {

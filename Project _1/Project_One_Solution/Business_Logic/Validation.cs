@@ -20,7 +20,7 @@ namespace Business_Logic
             if (IsEmailCheck)
                 return p;
             else
-                return null;
+                throw new UserException("Password must include 1 Uppercase,1 Lowercase,1 digit and 1 special character ,size is minimum 8 to 20 ");
         }
 
         public static string Email(string p)
@@ -30,7 +30,7 @@ namespace Business_Logic
             if (IsEmailCheck)
                 return p;
             else
-                return null;
+                throw new UserException("Please enter correct email format, Try again");
         }
 
         public static string Gender(string p)
@@ -40,7 +40,7 @@ namespace Business_Logic
             if (IsEmailCheck)
                 return p;
             else
-                return null;
+                throw new UserException("Please enter Either male or female ,Try again");
         }
 
         public static string Phone(string p)
@@ -50,7 +50,7 @@ namespace Business_Logic
             if (IsEmailCheck)
                 return p;
             else
-                return null;
+                throw new UserException("Please enter 10 digit number only");
         }
 
         public static string startdate(string p)
@@ -60,7 +60,7 @@ namespace Business_Logic
             if (IsDateCheck)
                 return p;
             else
-                return null;
+                throw new UserException("Please enter the date in format of DD/YYYY only");
         }
 
         public static string enddate(string p)
@@ -70,7 +70,7 @@ namespace Business_Logic
             if (IsDateCheck)
                 return p;
             else
-                return null;
+                throw new UserException("Please enter the date in format of DD/YYYY only");
         }
     }
 }
