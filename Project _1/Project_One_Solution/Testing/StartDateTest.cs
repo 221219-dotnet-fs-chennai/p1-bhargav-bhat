@@ -9,15 +9,15 @@ namespace Testing
         }
 
         [Test]
-        [TestCase("12/2022", "12/2022")]
-        [TestCase("13/2022", null)]
+        [TestCase("12/2022", true)]
+        [TestCase("13/2022", false)]
 
-        public void StartDaterChecker(string start_date, string expected)
+        public void StartDaterChecker(string start_date, bool s)
         {
             //Arrange
             var result = Validation.startdate(start_date);
             //Assert
-            Assert.AreEqual(result, expected);
+            Assert.AreEqual(result, s);
         }
     }
 }

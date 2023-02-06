@@ -20,8 +20,8 @@ namespace Business_Logic
             ed.TrainerId = s;
             ed.CollegeUniversity = educate.College_Uni;
             ed.Degree= educate.Degree;
-            ed.StartDate = Validation.startdate(educate.Start_Date);
-            ed.EndDate= Validation.enddate(educate.End_Date);
+            ed.StartDate = Validation.startdate(educate.Start_Date)?educate.Start_Date : throw new UserException("Please enter the date in format of DD/YYYY only");
+            ed.EndDate= Validation.enddate(educate.End_Date)?educate.End_Date : throw new UserException("Please enter the date in format of DD/YYYY only"); 
             ed.Description = educate.Descriptions;
 
             ed=repo.AddEducations(ed);
@@ -50,8 +50,8 @@ namespace Business_Logic
                 tra.TrainerId= s;
                 tra.CollegeUniversity = educate.College_Uni;
                 tra.Degree= educate.Degree;
-                tra.StartDate=educate.Start_Date; 
-                tra.EndDate = educate.End_Date;
+                tra.StartDate= Validation.startdate(educate.Start_Date) ? educate.Start_Date : throw new UserException("Please enter the date in format of DD/YYYY only");
+                tra.EndDate = Validation.enddate(educate.End_Date) ? educate.End_Date : throw new UserException("Please enter the date in format of DD/YYYY only");
                 tra.Description = educate.Descriptions;
                
                 tra = repo.UpdateEducation(tra);

@@ -10,15 +10,15 @@ namespace Testing
         }
 
         [Test]
-        [TestCase("9480314998", "9480314998")]
-        [TestCase("123456789", null)]
+        [TestCase("9480314998", true)]
+        [TestCase("123456789", false)]
 
-        public void PhoneCheck(string phone, string expected)
+        public void PhoneCheck(string phone, bool s)
         {
             //Arrange
             var result = Validation.Phone(phone);
             //Assert
-            Assert.AreEqual(result, expected);
+            Assert.AreEqual(result, s);
         }
     }
 }

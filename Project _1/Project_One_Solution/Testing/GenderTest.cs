@@ -9,19 +9,19 @@ namespace Testing
 
         }
         [Test]
-        [TestCase("Male", "Male")]
-        [TestCase("Female","Female")]
-        [TestCase("female", "female")]
-        [TestCase("male", "male")]
-        [TestCase("F", null)]
-        [TestCase("M", null)]
+        [TestCase("Male", true)]
+        [TestCase("Female",true)]
+        [TestCase("female", true)]
+        [TestCase("male", true)]
+        [TestCase("F", false)]
+        [TestCase("M", false)]
 
-        public void GenderCheck(string g, string expected)
+        public void GenderCheck(string g, bool s)
         {
             //Arrange
             var result = Validation.Gender(g);
             //Assert
-            Assert.AreEqual(result, expected);
+            Assert.AreEqual(result, s);
         }
     }
 }

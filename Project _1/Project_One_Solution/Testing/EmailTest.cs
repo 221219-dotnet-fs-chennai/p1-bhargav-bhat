@@ -10,15 +10,15 @@ namespace Testing
         }
 
         [Test]
-        [TestCase("Bhargav@gmail.com", "Bhargav@gmail.com")]
-        [TestCase("Bhargav", null)]
+        [TestCase("Bhargav@gmail.com", true)]
+        [TestCase("Bhargav", false)]
 
-        public void EmailCheck(string email, string expected)
+        public void EmailCheck(string email, bool s)
         {
             //Arrange
             var result = Validation.Email(email);
             //Assert
-            Assert.AreEqual(result, expected);
+            Assert.AreEqual(result, s);
         }
     }
 }

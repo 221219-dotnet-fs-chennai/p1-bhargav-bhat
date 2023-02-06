@@ -10,15 +10,15 @@ namespace Testing
         }
 
         [Test]
-        [TestCase("Bhargav@420","Bhargav@420")]
-        [TestCase("Bhargav", null)]
+        [TestCase("Bhargav@420",true)]
+        [TestCase("Bhargav", false)]
 
-        public void PasswordCheck(string password,string expected)
+        public void PasswordCheck(string password,bool s)
         {
             //Arrange
             var result =Validation.Password(password);
             //Assert
-            Assert.AreEqual(result, expected);
+            Assert.AreEqual(result, s);
         }
     }
 }

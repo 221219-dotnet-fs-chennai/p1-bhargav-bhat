@@ -26,8 +26,8 @@ namespace Business_Logic
             w.TrainerId = s;
             w.CompanyName = work.Company_Name;
             w.Role=work.Role;
-            w.StartDate= Validation.startdate(work.StartDate);
-            w.EndDate= Validation.enddate(work.EndDate);
+            w.StartDate= Validation.startdate(work.StartDate)?work.StartDate : throw new UserException("Please enter the date in format of DD/YYYY only"); ;
+            w.EndDate= Validation.enddate(work.EndDate)?work.EndDate : throw new UserException("Please enter the date in format of DD/YYYY only"); ;
             w.Description= work.Description;
 
             w = repo.AddEWorkDetails(w);
@@ -56,8 +56,8 @@ namespace Business_Logic
                 tra.TrainerId= s;
                 tra.CompanyName= work.Company_Name;
                 tra.Role= work.Role;
-                tra.StartDate= Validation.startdate(work.StartDate);
-                tra.EndDate= Validation.enddate(work.EndDate);
+                tra.StartDate= Validation.startdate(work.StartDate)?work.StartDate : throw new UserException("Please enter the date in format of DD/YYYY only"); ;
+                tra.EndDate= Validation.enddate(work.EndDate)?work.EndDate : throw new UserException("Please enter the date in format of DD/YYYY only"); ;
                 tra.Description= work.Description;
 
                 tra=repo.UpdateWorkDetails(tra);
