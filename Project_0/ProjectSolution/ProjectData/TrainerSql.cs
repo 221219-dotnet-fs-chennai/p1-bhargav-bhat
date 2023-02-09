@@ -295,7 +295,6 @@ namespace ProjectData
             return edu;
 
         } 
-
         public int DeleteProfile(int s)
         {
             using SqlConnection con = new SqlConnection(cString);

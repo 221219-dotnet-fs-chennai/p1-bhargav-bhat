@@ -1,0 +1,179 @@
+.row {
+    display:inline-flex;
+    
+  }
+  
+.column {
+    padding: 5%;
+  }
+  
+.A{
+    border-color: black;
+    border-style:ridge;
+    margin: 20%;
+  
+}
+.B{
+    border-color: black;
+    border-style:ridge;
+    margin: 20%;
+    border-radius: 20%;
+}
+.C{
+    border-color: black;
+    border-style:ridge;
+    margin: 20%;
+    border-radius: 50%;
+}
+
+#textbox1 {
+    border-radius: 25px;
+    padding: 20px; 
+    width: 50pc;
+    height: 10px;
+    margin-left: 20%;
+    box-shadow: 5px 2px 10px grey;
+    border: none;
+}
+#textbox{
+    border-radius: 15px;
+    padding: 20px; 
+    height: 10px;
+    width: 12pc;
+}
+#textbox2{
+    border-style: solid;
+    height: 20px;
+    width: 19%;
+    margin-top: 10px;
+}
+#b1{
+    background-color: rgb(101, 103, 230);
+    height: 30px;
+    width:19.5%;
+    border-radius: 20px;
+}
+.txt1{
+    margin: 10px;
+}
+
+
+.twitter{
+    display:flex;
+}
+.twitter input{
+    border: none;
+    margin: 10px;
+}
+.twitter img{
+    width: 60px;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+.twitter button{
+    border-radius: 20px;
+    width: 5pc;
+    background-color: rgb(115, 115, 248);
+    border: none;
+    margin: 10px;
+}
+
+.form{
+    margin:50px;
+}
+
+
+.exe2{
+    display: block;
+    border:1px solid;
+    padding: 10px;
+    width: 300px;
+}
+#nameE{
+    width:10pc;
+    margin: 5px;
+}
+#nameE1{
+    width:10pc;
+    margin:5px;
+}
+
+.para {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+  }
+  .button1, .button2 {
+    font-size: 16px;
+    background-color: lightblue;
+    border: none;
+    border-radius: 5px;
+    margin:5px;
+  }
+  
+  .google{
+        border: 1px solid;
+        padding: 10px;
+  }
+#g{
+    width:200px;
+    margin-left: 40%;
+}
+
+.form2{
+    margin-top: 50px;
+    border:1px solid;
+    width:200px;
+    padding: 5px;
+}
+#i1{
+    margin:3px;
+    width:80px;
+    border-radius: 5px;
+    border:1px solid;
+}
+#i2{
+    margin:3px;
+    width:80px;
+    border-radius: 5px;
+    border:1px solid;
+}
+#i3{
+    margin:3px;
+    width:175px;
+    border-radius: 5px;
+    border:1px solid;
+}
+#bt4{
+    margin:1px;
+    width:182px;
+    background-color: rgb(115, 115, 243);
+    border:none;
+}
+
+.uber{
+    width: 230px;
+    border: 1px solid;
+    padding: 5px;
+}
+#pick{
+    width:220px;
+    margin-bottom: 5px;
+}
+
+#drop{
+    width:220px;
+    margin-bottom: 5px;
+}
+#bt5{
+    border:none;
+    background-color: black;
+    color: aliceblue;
+    height:30px;
+    margin-bottom: 5px;
+}
+#bt6{
+    height:30px;
+    border:none;
+    background-color: rgb(214, 211, 211);
+}

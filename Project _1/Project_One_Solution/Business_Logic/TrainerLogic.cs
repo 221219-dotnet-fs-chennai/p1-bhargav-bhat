@@ -57,5 +57,13 @@ namespace Business_Logic
         {
             return Mapper.Map(repo.DisplayTrainer());
         }
+
+        public Trainer FetchTrainer(string email) 
+        {
+            var tra=(from t in repo.DisplayTrainer()
+                    where t.Email == email
+                    select t).FirstOrDefault();
+            return Mapper.Map(tra);
+        }
     }
 }

@@ -111,5 +111,12 @@ namespace Services.Controllers
             }
         }
 
+        [HttpGet("Fetch by Email")]
+        public IActionResult something([FromHeader] string email)
+        {
+            var d=_logic.FetchTrainer(email);
+            return Ok(d);
+        }
+
     }
 }

@@ -12,6 +12,7 @@ namespace Business_Logic
         Trainer UpdateTrainer(string email,Trainer trainer);
 
         Trainer RemoveTrainers(string email);
+        Trainer FetchTrainer(string email);
 
     }
 }

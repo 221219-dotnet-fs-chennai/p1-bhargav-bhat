@@ -63,12 +63,12 @@ CREATE TABLE [AdditionalDetails] (
 
 -----------------------Inserting Values for Trainer-----------------------------------------------------------------------------
 insert into Trainer(firstName,lastName,Gender,Email,Password,Phone,City,State,Country,AboutMe) 
-VALUES('Sai','Krishna','Male','Sai@gmail.com','Sai123@',9480314998,'Bengalore','Karnataka','India','I am a football player');
+VALUES('Sri','Devi','Female','sridevi@gmail.com','Sai123@',9480314998,'Chennai','TamilNadu','India','singer');
 
 -----------------------Inserting Values for Skills-----------------------------------------------------------------------------
 insert into Skills(Trainer_ID,SkillName) VALUES
-                                                (38,'SQL'),
-                                                    (38,'C#');
+                                                (54,'SQL'),
+                                                    (54,'C#');
                                                 
 -----------------------Inserting Values for Educations Data---------------------------------------------------------------------
 insert into Educations(Trainer_ID,College_University,Degree,StartDate,EndDate,Description) 
@@ -76,7 +76,7 @@ VALUES(30,'VVIET Mysore','B.E','08/2018','08/2022','Secured 84%');
 
 -----------------------Inserting Values for WorkExperirnce Data-----------------------------------------------------------------
 insert into WorkExperience(Trainer_ID,Company_Name,Role,StartDate,EndDate,Description)
-VALUES(9,'Revature','Associate','12/2022','03/2023','Completed 4 Projects');
+VALUES(52,'TCS','Associate','12/2022','03/2023','Completed 4 Projects');
 
 -----------------------Inserting Values for Additional Details -----------------------------------------------------------------
 insert into AdditionalDetails(Trainer_ID,Title,Achievements,Publications,Volunteering_Experiences)
