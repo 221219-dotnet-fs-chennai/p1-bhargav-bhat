@@ -36,7 +36,7 @@ builder.Services.AddScoped<IWork, WorkExperienceLogic>();
 builder.Services.AddScoped<IAdditionalsRepo, EFAdditional>();
 builder.Services.AddScoped<IAddLogic, AdditionalLogic>();
 
-Log.Information("---------- Application Building -------------");
+Log.Information("---------- Application Building --------------");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
