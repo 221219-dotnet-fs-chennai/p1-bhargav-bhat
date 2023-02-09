@@ -278,7 +278,7 @@ namespace ProjectData
             while (sdr.Read())
             {
                 edu.Add(new Trainer()
-                {
+                { 
                     firstName = sdr.GetString(1),
                     lastName = sdr.GetString(2),
                     Gender = sdr.GetString(3),
