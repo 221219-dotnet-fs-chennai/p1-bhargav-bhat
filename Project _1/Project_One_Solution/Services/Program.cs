@@ -20,6 +20,19 @@ Log.Information("----------Trying to connect with database-------------");
 var config = builder.Configuration.GetConnectionString("TrainersDatabase");
 builder.Services.AddDbContext<TrainerDatabaseProjectContext>(options => options.UseSqlServer(config));
 
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(MyAllowSpecificOrigins,
+                          policy =>
+                          {
+                              policy.AllowAnyOrigin()
+                                                  .AllowAnyHeader()
+                                                  .AllowAnyMethod();
+                          });
+});
+
 // Trainer table operations configuration
 builder.Services.AddScoped<ITrainerRepo, EFTrainerRepo>();
 builder.Services.AddScoped<ITrainerLogic,TrainerLogic>();
@@ -47,7 +60,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
 
 app.MapControllers();

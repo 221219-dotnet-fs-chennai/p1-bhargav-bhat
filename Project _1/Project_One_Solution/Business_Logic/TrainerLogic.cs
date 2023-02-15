@@ -58,10 +58,10 @@ namespace Business_Logic
             return Mapper.Map(repo.DisplayTrainer());
         }
 
-        public Trainer FetchTrainer(string email) 
+        public Trainer FetchTrainer(string email,string password) 
         {
             var tra=(from t in repo.DisplayTrainer()
-                    where t.Email == email
+                    where t.Email == email && t.Password == password
                     select t).FirstOrDefault();
             return Mapper.Map(tra);
         }

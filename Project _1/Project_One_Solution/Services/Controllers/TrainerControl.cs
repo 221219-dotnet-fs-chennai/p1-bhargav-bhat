@@ -1,5 +1,6 @@
 ﻿using Business_Logic;
 using Fluent_API.Entities;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -111,11 +112,12 @@ namespace Services.Controllers
             }
         }
 
-        [HttpGet("Fetch by Email")]
-        public IActionResult something([FromHeader] string email)
+        [HttpGet("Fetch")]
+        //[EnableCors("MyAllowSpecificOrigins")]
+        public IActionResult something([FromHeader] string email, [FromHeader]string password)
         {
-            var d=_logic.FetchTrainer(email);
-            return Ok(d);
+            var d=_logic.FetchTrainer(email,password);
+            return Ok("Success");
         }
 
     }
