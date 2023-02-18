@@ -63,7 +63,12 @@ namespace Business_Logic
             var tra=(from t in repo.DisplayTrainer()
                     where t.Email == email && t.Password == password
                     select t).FirstOrDefault();
-            return Mapper.Map(tra);
+            if(tra!=null )
+            {
+                return Mapper.Map(tra);
+            }
+            else
+            { return null; }
         }
     }
 }

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="new.js"></script>
+    <title>Welcome</title>
+    <style>
+        body{
+            background:url('https://images6.alphacoders.com/608/608832.jpg');
+        height: 100%;
+        width: 100%;
+        background-color: rgb(204, 221, 221);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        }
+        .forms{
+            border:1px solid;
+            margin-right: 60%;
+        }
+        .card{
+            margin-top:5%;
+            width:80%;
+            margin-left: 12%;
+        }
+        h4{
+            margin-top: 1%;
+            margin-left: 12%;
+            display: inline;
+            margin-right: 3%;
+            color: white;
+        }
+        
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+            .open-button {
+            background-color: #101010;
+            color: white;
+            padding: 4px 2px 2px 4px;
+            cursor: pointer;
+            margin-top: 1%;
+            width: 120px;
+            border-radius: 10%;
+            display: inline;
+            }
+
+            /* The popup form - hidden by default */
+            .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #df6d6d;
+            z-index: 9;
+            margin-right: 30%;
+            background-color: rgb(19, 93, 93);
+            width: 40%;
+            margin-bottom: 1%;
+            
+            }
+
+            /* Add styles to the form container */
+            .form-container {
+            
+            padding: 10px;
+            width: 100%;
+            background-color: rgb(144, 197, 213);
+            }
+
+            /* Full-width input fields */
+            .form-container input[type=text] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+            }
+
+            /* When the inputs get focus, do something */
+            .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+            }
+
+            /* Set a style for the submit/login button */
+            .form-container .btn {
+            background-color: #151716;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom:10px;
+            opacity: 0.8;
+            }
+
+            /* Add a red background color to the cancel button */
+            .form-container .cancel {
+            background-color: rgb(33, 31, 31);
+            }
+
+            /* Add some hover effects to buttons */
+            .form-container .btn:hover, .open-button:hover {
+            opacity: 1;
+            }
+            .dlt {
+            background-color: rgb(43, 40, 40); /* Blue background */
+            border: none; /* Remove borders */
+            color: white; /* White text */
+            padding: 12px 16px; /* Some padding */
+            font-size: 16px; /* Set a font size */
+            cursor: pointer; /* Mouse pointer on hover */
+            border-radius: 100%;
+            }
+
+            /* Darker background on mouse-over */
+            .dlt:hover {
+            background-color: rgb(245, 12, 12);
+            }
+            .card1{
+                background-color: #66ade7;
+                color: rgb(15, 15, 15);
+                margin-top:10px;
+                width:80%;
+                margin-left: 12%;
+                border: 1px solid;
+                
+               
+            }
+            .card2{
+                background-color: #ecb1b1;
+                margin-top:10px;
+                width:80%;
+                margin-left: 12%;
+                border: 1px solid;
+            }
+            .card3{
+                background-color: #66ade7;
+                margin-top:10px;
+                width:80%;
+                margin-left: 12%;
+                border: 1px solid;
+            }
+            .card4{
+                background-color: #ecb1b1;
+                margin-top:10px;
+                width:80%;
+                margin-left: 12%;
+                border: 1px solid;
+            }
+            .card5{
+                background-color: #66ade7;
+                margin-top:10px;
+                width:80%;
+                margin-left: 12%;
+                border: 1px solid;
+            }
+            #btp{
+                
+                margin-left: 80%;
+                border-radius: 5%;
+                background-color: rgb(19, 18, 18);
+                color: white;
+                
+            }
+            #btp1{
+                background-color: rgb(19, 18, 18);
+                color: white;
+            }
+            #btp1:hover{
+                background-color: white;
+                color: red;
+            }
+            #btp:hover{
+                background-color: white;
+                color: rgb(10, 10, 10);
+            }
+            #TrainerForm{
+                
+                
+                display: none;;
+                width: 40%;
+                
+            }
+            #TF{
+                width: 100%;
+                margin: 5px 0 5px 0;
+                padding: 5px;
+                
+            }
+            #t6{
+                width: 40%;
+            }
+            
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="A1">
+            <script>
+                function openForm7() {
+                    
+                    document.getElementById("TrainerForm").style.display = "block";
+                    }
+    
+                    function closeForm7() {
+                    document.getElementById("TrainerForm").style.display = "none";
+                    }
+                </script>
+            <script>UserDetails()</script>
+            <h4>Trainer Details</h4>
+            <div class="edu">
+                 <!-- The form -->
+                 <div class="form-popup" id="TrainerForm">
+                    <form class="form-container" id="TF">
+                        <h5>Update Details</h5>
+    
+                        <label for="firstName"><b>First Name</b></label>
+                        <input type="text" placeholder="First name" name="firstName" id="t1">
+                        <label for="lastName"><b>Last Name</b></label>
+                        <input type="text" placeholder="Last name" name="lastName" id="t2">
+                        <label for="password"><b>Gender</b></label>
+                        <select name="Gender" id="t3" class="form-select" aria-label="Default select example">
+                            <option selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" readonly placeholder="Email" name="email" id="t11">
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="Password" name="password" id="t5">
+                        <label for="phone"><b>Phone</b></label>
+                        <input type="text" placeholder="Phone" name="phone" id="t6"><br>
+                        <label for="city"><b>city</b></label>
+                        <input type="text" placeholder="City" name="city" id="t7">
+                        <label for="inputState" class="col-sm-2 col-form-label">State</label>
+                        <select name="state" id="t8" class="form-select" aria-label="Default select example">
+                            <option selected>Select State</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Andra Pradesh">Andra Pradesh</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                        </select>
+                        <label for="country"><b>Country</b></label>
+                        <input type="text" placeholder="country" name="country" id="t9">
+                        <label for="aboutme"><b>About Me</b></label>
+                        <input type="textarea" placeholder="aboutme" name="aboutme" id="t10">
+
+                        <button type="submit" class="btn" id="b11" onclick="updateTrainer()">Update</button>
+                        <button type="button" class="btn cancel" id="b12" onclick="closeForm7()">Back</button>
+                    </form>
+                    </div>
+            </div>
+            <div id="divtra"></div>
+         </div>
+        <div class="A2">
+            <script>getEducation()
+                function openForm() {
+                document.getElementById("myForm").style.display = "block";
+                }
+
+                function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+                }
+                </script>
+                <script>
+                function openForm1() {
+                    
+                    document.getElementById("myFormUpdate").style.display = "block";
+                    }
+    
+                    function closeForm1() {
+                    document.getElementById("myFormUpdate").style.display = "none";
+                    }
+                </script>
+                <script>
+                    function openForm2() {
+                        
+                        document.getElementById("workForm").style.display = "block";
+                        }
+        
+                        function closeForm2() {
+                        document.getElementById("workForm").style.display = "none";
+                        }
+                    </script>
+                <script>
+                    function openForm3() {
+                        
+                        document.getElementById("workFormupdate").style.display = "block";
+                        }
+        
+                        function closeForm3() {
+                        document.getElementById("workFormupdate").style.display = "none";
+                        }
+                    </script>
+                    <script>
+                        function openForm4() {
+                            
+                            document.getElementById("addForm").style.display = "block";
+                            }
+            
+                            function closeForm4() {
+                            document.getElementById("addForm").style.display = "none";
+                            }
+                        </script>
+                    <script>
+                        function openForm5() {
+                            
+                            document.getElementById("addFormupdate").style.display = "block";
+                            }
+            
+                            function closeForm5() {
+                            document.getElementById("addFormupdate").style.display = "none";
+                            }
+                        </script>
+                        <script>
+                            function openForm6() {
+                                
+                                document.getElementById("addskill").style.display = "block";
+                                }
+                
+                                function closeForm6() {
+                                document.getElementById("addskill").style.display = "none";
+                                }
+                            </script>
+            <h4>Education Details</h4>
+            <button class="open-button" onclick="openForm()">Add Education</button>
+            <div class="edu">
+                
+                <!-- The form -->
+                <div class="form-popup" id="myForm">
+                <form class="form-container" id="myF">
+                    <h5>Add Education Details</h5>
+
+                    <label for="college_Uni"><b>College name</b></label>
+                    <input type="text" placeholder="Enter college or university name" name="college_Uni" id="e11">
+                    <label for="degree"><b>Degree</b></label>
+                    <input type="text" placeholder="Enter Degree" name="degree" id="e12">
+                    <label for="start_Date"><b>Start Date</b></label>
+                    <input type="text" placeholder="Enter Start Date" name="start_Date" id="e13">
+                    <label for="end_Date"><b>End Date</b></label>
+                    <input type="text" placeholder="Enter End Date" name="end_Date" id="e14">
+                    <label for="descriptions"><b>Description</b></label>
+                    <input type="text" placeholder="Enter Description" name="descriptions" id="e15">
+
+                    <button type="submit" class="btn" onclick="addEducation()">Add</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Back</button>
+                </form>
+                </div>
+            </div>
+            <div class="edu1">
+                <!-- The form -->
+                <div class="form-popup" id="myFormUpdate">
+                <form class="form-container" id="myFUpdate">
+                    <h5>Update Education Details</h5>
+
+                    <label for="college_Uni"><b>College name</b></label>
+                    <input type="text" placeholder="Enter college or university name" name="college_Uni" id="e1">
+                    <label for="degree"><b>Degree</b></label>
+                    <input type="text" placeholder="Enter Degree" name="degree" id="e2">
+                    <label for="start_Date"><b>Start Date</b></label>
+                    <input type="text" placeholder="Enter Start Date" name="start_Date" id="e3">
+                    <label for="end_Date"><b>End Date</b></label>
+                    <input type="text" placeholder="Enter End Date" name="end_Date" id="e4">
+                    <label for="descriptions"><b>Description</b></label>
+                    <input type="text" placeholder="Enter Description" name="descriptions" id="e5">
+
+                    <button type="submit" class="btn" onclick="updateEducation()">Update</button>
+                    <button type="button" class="btn cancel" onclick="closeForm1()">Back</button>
+                </form>
+                </div>
+            </div>
+            <div id="edudiv"></div>
+        </div>
+        <div class="A3">
+            <script>getWorkDetails()</script>
+            <h4>Work Experience Details</h4>
+            <button class="open-button" onclick="openForm2()">Add Work</button>
+            <div id="workdiv">
+                <!-- The form -->
+                <div class="form-popup" id="workForm">
+                    <form class="form-container" id="workF">
+                        <h5>Add Work Details</h5>
+    
+                        <label for="company_Name"><b>Company name</b></label>
+                        <input type="text" placeholder="Enter company" name="company_Name" id="w11">
+                        <label for="role"><b>Role</b></label>
+                        <input type="text" placeholder="Enter Role" name="role" id="w12">
+                        <label for="startDate"><b>Start Date</b></label>
+                        <input type="text" placeholder="Enter Start Date" name="startDate" id="w13">
+                        <label for="endDate"><b>End Date</b></label>
+                        <input type="text" placeholder="Enter End Date" name="endDate" id="w14">
+                        <label for="description"><b>Description</b></label>
+                        <input type="text" placeholder="Enter Description" name="description" id="w15">
+    
+                        <button type="submit" class="btn" onclick="addWork()">Add</button>
+                        <button type="button" class="btn cancel" onclick="closeForm2()">Back</button>
+                    </form>
+                </div>
+                <div id="work2">
+                    <div class="form-popup" id="workFormupdate">
+                        <form class="form-container" id="workFupdate">
+                            <h5>Update Work Details</h5>
+        
+                            <label for="company_Name"><b>Company Name</b></label>
+                            <input type="text" placeholder="Enter company name" name="company_Name" id="w1">
+                            <label for="role"><b>Role</b></label>
+                            <input type="text" placeholder="Enter role" name="role" id="w2">
+                            <label for="startDate"><b>Start Date</b></label>
+                            <input type="text" placeholder="Enter Start Date" name="startDate" id="w3">
+                            <label for="endDate"><b>End Date</b></label>
+                            <input type="text" placeholder="Enter End Date" name="endDate" id="w4">
+                            <label for="description"><b>Description</b></label>
+                            <input type="text" placeholder="Enter Description" name="description" id="w5">
+        
+                            <button type="submit" class="btn" onclick="updateWork()">Update</button>
+                            <button type="button" class="btn cancel" onclick="closeForm3()">Back</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="A4">
+            <script>getSkills()</script>
+            <h4>Skills Details</h4>
+            <button class="open-button" onclick="openForm6()">Add Skills</button>
+            <div id="skilldiv">
+                <div class="form-popup" id="addskill">
+                    <form class="form-container" id="adds">
+                        <h5>Add Skills</h5>
+    
+                        <label for="skillName"><b>Enter your Skill</b></label>
+                        <input type="text" placeholder="Enter Skill" name="skillName" id="s1">
+    
+                        <button type="submit" class="btn" onclick="addSkill()">Add</button>
+                        <button type="button" class="btn cancel" onclick="closeForm6()">Back</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="A5">
+            <script>getAdditional()</script>
+            <h4>Additional Details</h4>
+            <button class="open-button" onclick="openForm4()">Add Additional</button>
+            <div id="adddiv">
+                <div class="form-popup" id="addForm">
+                    <form class="form-container" id="addF">
+                        <h5>Add Additional Details</h5>
+    
+                        <label for="title"><b>Title</b></label>
+                        <input type="text" placeholder="Enter title" name="title" id="a11">
+                        <label for="achievments"><b>Achievments</b></label>
+                        <input type="text" placeholder="Enter achievments" name="achievments" id="a12">
+                        <label for="publications"><b>Publications Date</b></label>
+                        <input type="text" placeholder="Enter publications" name="publications" id="a13">
+                        <label for="volunteering_Experiences"><b>Volunteering Experiences Date</b></label>
+                        <input type="text" placeholder="Enter volunteering_Experiences" name="volunteering_Experiences" id="a14">
+    
+                        <button type="submit" class="btn" onclick="addAdd()">Add</button>
+                        <button type="button" class="btn cancel" onclick="closeForm4()">Back</button>
+                    </form>
+                </div>
+                <div id="work2">
+                    <div class="form-popup" id="addFormupdate">
+                        <form class="form-container" id="addFupdate">
+                            <h5>Update Additional Details</h5>
+        
+                            <label for="title"><b>Title</b></label>
+                            <input type="text" placeholder="Enter title" name="title" id="a1">
+                            <label for="achievments"><b>Role</b></label>
+                            <input type="text" placeholder="Enter achievments" name="achievments" id="a2">
+                            <label for="publications"><b>publications</b></label>
+                            <input type="text" placeholder="Enter publications" name="publications" id="a3">
+                            <label for="volunteering_Experiences"><b>Volunteering Experiences</b></label>
+                            <input type="text" placeholder="Enter volunteering_Experiences" name="volunteering_Experiences" id="a4">
+        
+                            <button type="submit" class="btn" onclick="updateAdd()">Update</button>
+                            <button type="button" class="btn cancel" onclick="closeForm5()">Back</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="exit">
+            <button type="button" id="bt1" onclick="location.href='LoginPage.html'">Exit</button>
+        </div>
+    </div>
+</body>
+</html>

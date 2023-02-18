@@ -20,7 +20,7 @@ namespace Services.Controllers
         }
 
         [HttpGet("Fetch_Work_Experience_Details")]
-        public IActionResult Get(string email)
+        public IActionResult Get([FromHeader]string email)
         {
             try
             {

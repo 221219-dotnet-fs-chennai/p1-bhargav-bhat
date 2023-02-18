@@ -19,7 +19,7 @@ namespace Services.Controllers
         }
 
         [HttpGet("Fetch_Skills")]
-        public IActionResult GetSkills(string email) 
+        public IActionResult GetSkills([FromHeader]string email) 
         {
             try
             {
@@ -37,7 +37,7 @@ namespace Services.Controllers
             }
         }
 
-        [HttpDelete("Delete Skills")]
+        [HttpDelete("Delete_Skills")]
         
         public IActionResult DeleteSkills([FromHeader]string email, [FromHeader]string Skill_Name)
         {

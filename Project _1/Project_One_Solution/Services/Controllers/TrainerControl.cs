@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using Serilog;
 
@@ -99,25 +100,35 @@ namespace Services.Controllers
             {
                 Log.Information("---------- Adding Trainer -------------");
                 var t = _logic.AddTrainers(trainer);
-                return Created("Add", t); 
+                if (t != null)
+                    return Ok(t);
+                else
+                    return BadRequest("Email ID Exist");
             }
-            catch (UserException u)
+            catch(DbUpdateException ex)
             {
-                return BadRequest(u.Message);
+                return BadRequest(ex.Message);
             }
-            catch (Exception e)
+            catch (UserException e)
             {
                 Log.Information("---------- Exception Handled -------------");
                 return BadRequest(e.Message);
             }
         }
 
-        [HttpGet("Fetch")]
+        [HttpGet("Verify")]
         //[EnableCors("MyAllowSpecificOrigins")]
         public IActionResult something([FromHeader] string email, [FromHeader]string password)
         {
             var d=_logic.FetchTrainer(email,password);
-            return Ok("Success");
+            if(d==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(d);
+            }
         }
 
     }

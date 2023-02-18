@@ -18,8 +18,8 @@ namespace Services.Controllers
            repo = _repo;
            trepo = _trepo;
         }
-        [HttpGet("Fetch Additional Details")]
-        public IActionResult Get(string email)
+        [HttpGet("Fetch_Additional_Details")]
+        public IActionResult Get([FromHeader] string email)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Services.Controllers
             }
         }
 
-        [HttpDelete("Delete Additional Details")]
+        [HttpDelete("Delete_Additional_Details")]
 
         public IActionResult Delete([FromHeader] string email, [FromHeader] string Title)
         {
@@ -77,7 +77,7 @@ namespace Services.Controllers
             }
         }
 
-        [HttpPost("Add Addtional Details")]
+        [HttpPost("Add_Addtional_Details")]
 
         public IActionResult Add([FromHeader] string email, [FromBody] Models.Additional ad)
         {

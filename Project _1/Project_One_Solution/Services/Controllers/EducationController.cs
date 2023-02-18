@@ -18,8 +18,8 @@ namespace Services.Controllers
             trepo= _trepo;
         }
 
-        [HttpGet("Fetch Education Details")]
-        public IActionResult Get(string email)
+        [HttpGet("Fetch_Education_Details")]
+        public IActionResult Get([FromHeader]string email)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace Services.Controllers
             }
         }
 
-        [HttpDelete("Delete Education")]
+        [HttpDelete("Delete_Education")]
 
         public IActionResult Delete([FromHeader] string email, [FromHeader] string College_Name)
         {
@@ -81,7 +81,7 @@ namespace Services.Controllers
             }
         }
 
-        [HttpPost("Add Educations")]
+        [HttpPost("Add_Educations")]
 
         public IActionResult Add([FromHeader] string email, [FromBody] Models.Educate educate)
         {
