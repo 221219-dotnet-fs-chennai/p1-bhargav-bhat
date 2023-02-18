@@ -23,7 +23,6 @@ function login() {
     });
     }
 
-
 function UserDetails() {
     let emailid=localStorage.getItem("Email");
     let password=localStorage.getItem("Pass");
@@ -41,39 +40,43 @@ function UserDetails() {
     }
 }).then(trainer=> {
     tdata=JSON.stringify(trainer);
-    const markup=`<div class="card1" id="dis"><div class="card-body row g-3">
+    localStorage.setItem("user",trainer.firstName);
+    const markup1=`${trainer.firstName} ${trainer.lastName}`;
+    const markup=`<div class="card" id="dis"><div class="card-body row g-3">
                 <div class="col-md-3">
-                Name:${trainer.firstName} ${trainer.lastName}
+                <b>Full Name : </b>${trainer.firstName} ${trainer.lastName}
                 </div>
                 <div class="col-md-3">
-                Gender:${trainer.gender}
+                <b>Gender : </b>${trainer.gender}
                 </div>
                 <div class="col-md-3">
-                Email:${trainer.email}
+                <b>Email : </b>${trainer.email}
                 </div>
                 <div class="col-md-3">
-                Phone:${trainer.phone}
+                <b>Phone Number : </b>${trainer.phone}
                 </div>
                 <div class="col-md-3">
-                City:${trainer.city}
+                <b>City : </b>${trainer.city}
                 </div>
                 <div class="col-md-3">
-                State:${trainer.state}
+                <b>State : </b>${trainer.state}
                 </div>
                 <div class="col-md-3">
-                Country:${trainer.country}
+                <b>Country : </b>${trainer.country}
                 </div>
                 <div class="col-md-12">
-                About Me:${trainer.aboutme}
+                <b>About Me : </b>${trainer.aboutme}
                 </div>
                 <div class="col-md-6">
-                <button class="profile" value='${tdata}' onclick="fetchTrainer(value)" id="btp"">Update </button>
+                <button class="profile" value='${tdata}' style="border-radius:8px" onclick="fetchTrainer(value)" id="btp"">Update </button>
                 </div>
                 <div class="col-md-4">
-                <button class="profile" id="btp1" value='${tdata}' onclick="deleteProfile(value)"">Delete Profile</button>
+                <button class="profile" id="btp1" value='${tdata}' style="border-radius:8px" onclick="deleteProfile(value)"">Delete Profile</button>
                 </div>
                 </div></div>`;
                 document.querySelector('#divtra').insertAdjacentHTML('afterbegin',markup);
+                console.log(markup1);
+                document.querySelector('#proname').insertAdjacentHTML('afterbegin',markup1);
 })
 
 }
@@ -87,7 +90,7 @@ function signup()
         const formData = new FormData(form);
 
         const data=Object.fromEntries(formData);
-
+        console.log(data);
 
         fetch('https://localhost:7181/api/TrainerControl/Add_Trainer', {
         method:'POST',
@@ -96,7 +99,7 @@ function signup()
           },
         body:JSON.stringify(data),
     }).then(response=> {
-        if(response.status===201) {
+        if(response.status===200) {
             console.log("Success");
             alert("Successfully Registered");
             window.location.replace('LoginPage.html');
@@ -132,27 +135,27 @@ function getEducation() {
 }).then(education=>{education.forEach(edu => {
                 
             edata=JSON.stringify(edu);
-            const markup1=`<div class="card2" id="dis"><div class="card-body row g-3">
+            const markup1=`<div class="card" id="dis"><div class="card-body row g-3">
                 <div class="col-md-4" id="e11">
-                College or University:${edu.college_Uni}
+                <b>College or University : </b>${edu.college_Uni}
                 </div>
                 <div class="col-md-4" id="e12">
-                Degree:${edu.degree}
+                <b>Degree : </b>${edu.degree}
                 </div>
                 <div class="col-md-2">
-                <button class="open-button" value='${edata}' onclick="fetchFields(value)" id="btu"">Update</button>
+                <button class="open-button" value='${edata}' style="border-radius: 8px;margin-left: 3px;margin-right: 3px;" onclick="fetchFields(value)" id="btu"">Update</button>
                 </div>
                 <div class="col-md-2">
-                <button class="dlt" id="btu" value='${edata}' onclick="deleteEducation(value)""><i class="fa fa-trash"></i></button>
+                <button class="dlt" id="btu" style="border-radius: 8px;margin-left: 3px;margin-right: 3px;margin-bottom:0" value='${edata}' onclick="deleteEducation(value)""><i class="fa fa-trash"></i></button>
                 </div>
                 <div class="col-md-2" id="e13">
-                Start Date:${edu.start_Date}
+                <b>Start Date : </b>${edu.start_Date}
                 </div>
                 <div class="col-md-2" id="e14">
-                End Date:${edu.end_Date}
+                <b>End Date : </b>${edu.end_Date}
                 </div>
                 <div class="col-md-3" id="e15">
-                Description:${edu.descriptions}
+                <b>Description : </b>${edu.descriptions}
                 </div>
                
                 </div></div>`;
@@ -161,7 +164,6 @@ function getEducation() {
 
 });
 }
-
 
 function getWorkDetails() {
 
@@ -182,27 +184,27 @@ function getWorkDetails() {
 }).then(worke=>{worke.forEach(w => {
                 
             wdata=JSON.stringify(w);
-            const markup1=`<div class="card3" id="dis"><div class="card-body row g-3">
+            const markup1=`<div class="card" id="dis"><div class="card-body row g-3">
                 <div class="col-md-4">
-                Company Name:${w.company_Name}
+                <b>Company Name : </b>${w.company_Name}
                 </div>
                 <div class="col-md-4">
-                Role:${w.role}
+                <b>Role : </b>${w.role}
                 </div>
                 <div class="col-md-2">
-                <button class="open-button" value='${wdata}' onclick="fetchFieldsw(value)" id="btu"">Update</button>
+                <button class="open-button" value='${wdata}' style="border-radius: 8px;margin-left: 3px;margin-right: 3px;" onclick="fetchFieldsw(value)" id="btu"">Update</button>
                 </div>
                 <div class="col-md-2">
-                <button class="dlt" id="btu" value='${wdata}' onclick="deleteWork(value)""><i class="fa fa-trash"></i></button>
+                <button class="dlt" style="border-radius: 8px;margin-left: 3px;margin-right: 3px;margin-bottom:0" value='${wdata}' onclick="deleteWork(value)""><i class="fa fa-trash"></i></button>
                 </div>
-                <div class="col-md-4">
-                Start Date:${w.startDate}
+                <div class="col-md-2">
+                <b>Start Date : </b>${w.startDate}
                 </div>
-                <div class="col-md-4">
-                End Date:${w.endDate}
+                <div class="col-md-2">
+                <b>End Date : </b>${w.endDate}
                 </div>
-                <div class="col-md-4">
-                Description:${w.descriptions}
+                <div class="col-md-3">
+                <b>Description : </b>${w.descriptions}
                 </div>
                 </div></div>`;
                 document.querySelector('#workdiv').insertAdjacentHTML('afterbegin',markup1);
@@ -231,12 +233,15 @@ function getSkills() {
                 
             sdata=JSON.stringify(skill);
             localStorage.setItem("skl",skill.skillName);
-            const markup1=`<div class="card4" id="dis"><div class="card-body row g-3">
-                <div class="col-md-6">
-                Skill Name:${skill.skillName}
+            const markup1=`<div class="card" id="dis"><div class="card-body row g-3">
+                <div class="col-md-8">
+                <b>Skill Name : </b>${skill.skillName}
                 </div>
                 <div class="col-md-2">
-                <button class="dlt" id="btu" value='${sdata}' onclick="deleteSkill(value)""><i class="fa fa-trash"></i></button>
+                <button class="open-button" style="border-radius: 8px;margin-left: 3px;margin-right: 3px;">Update</button>
+                </div>
+                <div class="col-md-2">
+                <button class="dlt" style="border-radius: 8px;margin-left: 3px;margin-right: 3px;margin-bottom:0" value='${sdata}' onclick="deleteSkill(value)""><i class="fa fa-trash"></i></button>
                 </div>
                 </div></div>`;
                 document.querySelector('#skilldiv').insertAdjacentHTML('afterbegin',markup1);
@@ -244,7 +249,6 @@ function getSkills() {
 
 });
 }
-
 
 function getAdditional() {
 
@@ -264,24 +268,24 @@ function getAdditional() {
     }
 }).then(add=>{add.forEach(a => {
             adata=JSON.stringify(a);
-            const markup1=`<div class="card5" id="dis"><div class="card-body row g-3">
+            const markup1=`<div class="card" id="dis"><div class="card-body row g-3">
                 <div class="col-md-8">
-                Title:${a.title}
+                <b>Title : </b>${a.title}
                 </div>
                 <div class="col-md-2">
-                <button class="open-button" value='${adata}' onclick="fetchFieldsAdd(value)" id="btu"">Update</button>
+                <button class="open-button" value='${adata}' style="border-radius: 8px;margin-left: 3px;margin-right: 3px;margin-bottom:0" onclick="fetchFieldsAdd(value)" id="btu"">Update</button>
                 </div>
                 <div class="col-md-2">
-                <button class="dlt" id="btu" value='${adata}' onclick="deleteAdd(value)""><i class="fa fa-trash"></i></button>
+                <button class="dlt" style="border-radius: 8px;margin-left: 3px;margin-right: 3px;margin-bottom:0" value='${adata}' onclick="deleteAdd(value)""><i class="fa fa-trash"></i></button>
                 </div>
                 <div class="col-md-12">
-                Achievments:${a.achievments}
+                <b>Achievements : </b>${a.achievments}
                 </div>
                 <div class="col-md-12">
-                Publications:${a.publications}
+                <b>Publications : </b>${a.publications}
                 </div>
                 <div class="col-md-12">
-                Volunteering Experiences:${a.volunteering_Experiences}
+                <b>Volunteering Experiences : </b>${a.volunteering_Experiences}
                 </div>
                 
                 </div></div>`;
@@ -319,7 +323,6 @@ function addEducation() {
         alert("Some Error Occured,Please try after some time...")
     });
 }
-
 
 function fetchFields(value) {
     
@@ -526,7 +529,6 @@ function deleteWork(value) {
     }
 }
 
-
 function fetchFieldsAdd(value){
     addata=JSON.parse(value);
     console.log(value);
@@ -712,7 +714,8 @@ function fetchTrainer(value) {
     const form = document.querySelector('#TrainerForm');
     
     a=form.querySelector('#t1').value=tradata.firstName;
-    console.log(a)
+    console.log(a);
+    localStorage.setItem("userName",a);
     form.querySelector('#t2').value=tradata.lastName;
     form.querySelector('#t3').value=tradata.gender;
     form.querySelector('#t5').value=tradata.password;

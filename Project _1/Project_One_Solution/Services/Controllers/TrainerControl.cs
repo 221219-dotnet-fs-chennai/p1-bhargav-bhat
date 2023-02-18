@@ -100,10 +100,7 @@ namespace Services.Controllers
             {
                 Log.Information("---------- Adding Trainer -------------");
                 var t = _logic.AddTrainers(trainer);
-                if (t != null)
-                    return Ok(t);
-                else
-                    return BadRequest("Email ID Exist");
+                return Ok(t);
             }
             catch(DbUpdateException ex)
             {

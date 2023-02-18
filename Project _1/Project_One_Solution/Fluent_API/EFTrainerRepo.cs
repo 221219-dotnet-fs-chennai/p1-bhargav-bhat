@@ -24,7 +24,6 @@ namespace Fluent_API
         {
              context.Trainers.Add(t);
              context.SaveChanges();
-            
              return t;
         }
 
