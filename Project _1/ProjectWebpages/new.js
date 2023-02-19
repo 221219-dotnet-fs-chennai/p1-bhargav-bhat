@@ -99,7 +99,7 @@ function signup()
           },
         body:JSON.stringify(data),
     }).then(response=> {
-        if(response.status===200) {
+        if(response.ok) {
             console.log("Success");
             alert("Successfully Registered");
             window.location.replace('LoginPage.html');
@@ -204,7 +204,7 @@ function getWorkDetails() {
                 <b>End Date : </b>${w.endDate}
                 </div>
                 <div class="col-md-3">
-                <b>Description : </b>${w.descriptions}
+                <b>Description : </b>${w.description}
                 </div>
                 </div></div>`;
                 document.querySelector('#workdiv').insertAdjacentHTML('afterbegin',markup1);
@@ -316,6 +316,7 @@ function addEducation() {
         body:JSON.stringify(data),
     }).then(response=> {
         if(response.status===200) {
+            alert("Education Added Succesfully")
             window.location.reload('AfterLogin.html');
         }
     })
@@ -784,4 +785,15 @@ function updateTrainer() {
     .catch(error=>{
         alert("Some Error Occured,Please try after some time...")
     });
+}
+
+function logout() {
+    let text;
+    if (confirm("Are you sure, do you want to log out from the page...!") == true) 
+    {
+        window.location.href='LoginPage.html';
+    }
+    else{
+        text="You canceled!";
+    }
 }
