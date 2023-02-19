@@ -102,14 +102,14 @@ namespace Services.Controllers
                 var t = _logic.AddTrainers(trainer);
                 return Ok(t);
             }
-            catch(DbUpdateException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (UserException e)
+            catch (InvalidDataException e)
             {
                 Log.Information("---------- Exception Handled -------------");
                 return BadRequest(e.Message);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

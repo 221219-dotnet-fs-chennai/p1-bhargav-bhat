@@ -10,7 +10,7 @@ namespace Business_Logic
     {
         public UserException(string s) 
         { 
-            throw new Exception(s);
+            throw new InvalidDataException(s);
         }
     }
 }
