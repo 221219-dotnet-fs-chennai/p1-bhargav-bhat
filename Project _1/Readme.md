@@ -1,4 +1,4 @@
-# Project_0 - Bhargav Bhat
+# Project_1 - Bhargav Bhat
 ## This project name is Find a Trainer Online.
 - Agenda is to create an application to add professional trainers details in a database and these trainers are able to upload their profiles, so that recruiters and clients can reach out to them to offer business as well get their team trained on required skill sets.
 ### As a first phase it will do the operations mentioned below. 
