@@ -12,6 +12,7 @@ namespace Testing
         [Test]
         [TestCase("Bhargav@420",true)]
         [TestCase("Bhargav", false)]
+        [TestCase("123456",false)]
 
         public void PasswordCheck(string password,bool s)
         {
