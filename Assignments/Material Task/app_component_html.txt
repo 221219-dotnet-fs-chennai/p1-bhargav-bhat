@@ -1,0 +1,76 @@
+<!--<h1 *ngIf="status; then ifpart else elsepart">{{title}}</h1>
+<ng-template #elsepart>
+    <h2>Unable to fetch the title</h2>
+</ng-template>
+<ng-template #ifpart>
+    <h2>Statement 2</h2>
+</ng-template>
+<ng-template [ngIf]="color=='red'">
+    <h2 style="color: red;">Red</h2>
+</ng-template>
+<ng-template [ngIf]="color=='green'">
+    <h2 style="color: rgb(0, 255, 98);">Green</h2>
+</ng-template>
+<ng-template [ngIf]="color=='yellow'">
+    <h2 style="color: rgb(221, 235, 16);">Yellow</h2>
+</ng-template> -->
+<br> <p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+<p>
+	<ngb-alert [dismissible]="false">
+		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+	</ngb-alert>
+</p>
+
+<input #c type="text"  name="color" #input1>
+<button (click)="onClickButton(c.value)" type="submit"> Click to Change </button>
+<div [ngSwitch]="color" #switch>
+    <h2 *ngSwitchCase="'red'" style="color: red;">Red</h2>
+    <h2 *ngSwitchCase="'blue'" style="color: rgb(12, 27, 245);">Blue</h2>
+    <h2 *ngSwitchCase="'green'" style="color: rgb(15, 247, 54);">Green</h2>
+    <h2 *ngSwitchDefault>Default</h2>
+</div>
+
+
+<mat-slide-toggle>Slide me!</mat-slide-toggle>
+
+<br><br><br><mat-spinner></mat-spinner>
+
+<br><br><br><mat-progress-bar mode="query"></mat-progress-bar>
+
+<br><br><br><mat-tab-group>
+    <mat-tab label="I"> Content ABCD </mat-tab>
+    <mat-tab label="II"> Content MNOP </mat-tab>
+    <mat-tab label="III"> Content WXYZ</mat-tab>
+  </mat-tab-group>
+
+  <br><br><mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="bold">Bold</mat-button-toggle>
+    <mat-button-toggle value="italic">Italic</mat-button-toggle>
+    <mat-button-toggle value="underline">Underline</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <h3>Radio Buttons</h3>
+  <mat-radio-group aria-label="Select an option">
+    <mat-radio-button value="1">Male</mat-radio-button>
+    <mat-radio-button value="2">Female</mat-radio-button>
+  </mat-radio-group>
+<!-- <form #basicform='ngForm' (submit)="getdata(basicform.value)">
+    <input ngModel type="text" name="Username" placeholder="Enter username">
+    <input ngModel type="password" name="password" placeholder="Enter password">
+    <button type="submit"  >Submit</button>
+</form> -->
+
