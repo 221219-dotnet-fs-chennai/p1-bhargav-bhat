@@ -1,0 +1,10 @@
+.f{
+    width: 50%;
+    border: 1px solid;
+    padding: 1%;
+    margin-left: 0%;
+    box-shadow: 5%;
+    background-color: rgb(231, 231, 232);
+    margin-top: 2%;
+    border-radius: 10px;
+}

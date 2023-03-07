@@ -1,0 +1,77 @@
+<div class="container">
+    <h3 class="mb-3">Add New Trainers</h3>
+    <div class="f">
+    <form (ngSubmit)="addTrainers()">
+        <div class="row mb-3">
+          <label for="inputFirstname" class="col-sm-2 col-form-label">First Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="firstName" id="inputFirstname" [(ngModel)]="addTrainerRequest.firstName" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputLastname" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="lastName" id="inputLastname" [(ngModel)]="addTrainerRequest.lastName" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gridRadios1" value="Male" [(ngModel)]="addTrainerRequest.gender" [ngModelOptions]="{standalone: true}">
+                <label class="form-check-label" for="gridRadios1">Male</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" id="gridRadios2" value="Female" [(ngModel)]="addTrainerRequest.gender" [ngModelOptions]="{standalone: true}">
+                <label class="form-check-label" for="gridRadios2">Female</label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" name="email" id="inputEmail3" [(ngModel)]="addTrainerRequest.email" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" name="password" id="inputPassword3" [(ngModel)]="addTrainerRequest.password" [ngModelOptions]="{standalone: true}">
+          </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPhone" class="col-sm-2 col-form-label">Phone Number</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="phone" id="inputPhone" [(ngModel)]="addTrainerRequest.phone" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputCity" class="col-sm-2 col-form-label">City</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="city" id="inputCity" [(ngModel)]="addTrainerRequest.city" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputState" class="col-sm-2 col-form-label">State</label>
+            <select name="state" class="form-select" aria-label="Default select example" [(ngModel)]="addTrainerRequest.state">
+                <option selected>Select State</option>
+                <option value="Karnataka" >Karnataka</option>
+                <option value="Andra Pradesh" >Andra Pradesh</option>
+                <option value="Tamil Nadu" >Tamil Nadu</option>
+              </select>
+          </div>
+          <div class="row mb-3">
+            <label for="inputCountry" class="col-sm-2 col-form-label">Country</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="country" id="inputCountry" [(ngModel)]="addTrainerRequest.country">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">About Me</label>
+            <textarea class="form-control" name="aboutme" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="addTrainerRequest.aboutme"></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary" style="margin-left: 45%;">Sign Up</button>
+          </div>
+      </form></div>
+</div>
